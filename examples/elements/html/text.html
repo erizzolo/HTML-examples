@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Elementi testuali di un documento</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Elementi testuali di un documento">
+    <link rel="stylesheet" href="css/core.css">
+    <script src="js/core.js"></script>
+</head>
+
+<body>
+    <h1>Elementi testuali di un documento</h1>
+    <h2>Nota importante</h2>
+    <p>
+        Questi elementi servono ad indicare il <em>significato logico</em>
+        di parti del testo e <strong>non</strong> la formattazione del testo,
+        che comunque serve ad evidenziarne il significato.
+    </p>
+    <p>
+        Vanno quindi evitati quando ci&ograve; che ci interessa è solo modificare l'aspetto con cui il testo &egrave;
+        visualizzato: a ci&ograve; serve il linguaggo <abbr title="Cascaded Style Sheet">CSS</abbr>.
+    </p>
+    <h2>Elenco degli elementi testuali</h2>
+    <dl>
+        <dt>a</dt>
+        <dd>
+            il punto di <span title="se è specificato l'attributo href">partenza</span> o <span
+                title="se è specificato l'attributo id">destinazione</span> di un collegamento ipertestuale
+        </dd>
+        <dt>em</dt>
+        <dd>
+            dall'inglese <span lang="en">emphasis</span>: una porzione di testo di particolare rilievo, sulla quale
+            porre <em>l'accento</em>
+        </dd>
+        <dt>strong</dt>
+        <dd>
+            una porzione di testo con maggiore importanza, alla quale prestare <strong>particolare attenzione</strong>
+        </dd>
+        <dt>small</dt>
+        <dd>
+            una porzione di testo con minore importanza, <small>ad esempio un commento</small>
+        </dd>
+        <dt>s</dt>
+        <dd>
+            una porzione di testo obsoleta, ad es. <s>non pi&ugrave; attuale perch&eacute; non aggiornata</s>
+        </dd>
+        <dt>cite</dt>
+        <dd>
+            una porzione di testo con il titolo di un'opera alla quale si fa riferimento (dalla <cite>Bibbia</cite>)
+        </dd>
+        <dt>q</dt>
+        <dd>
+            una porzione di testo derivata da un'altra fonte, ovvero <q
+                cite="https://html.spec.whatwg.org/#the-q-element">quoted from another source</q>
+        </dd>
+        <dt>abbr</dt>
+        <dd>
+            una porzione di testo contenente un'abbreviazione, ad es. <abbr
+                title="HyperText Markup Language">HTML</abbr>
+        </dd>
+        <dt>time</dt>
+        <dd>
+            una porzione di testo che rappresenta una data/ora, ad es. <time datetime="1964-10-18"
+                title="Il giorno in cui sono nato">18 ottobre 1964</time>
+        </dd>
+        <dt>code</dt>
+        <dd>
+            una porzione di testo che contiene codice per computer, ad es. <code>&lt;!DOCTYPE html&gt;</code>
+        </dd>
+        <dt>var</dt>
+        <dd>
+            una porzione di testo che contiene una variabile, ad es. <var>x</var> + 1 = 0 ha come soluzione <var>x</var>
+            = -1
+        </dd>
+        <dt>samp</dt>
+        <dd>
+            una porzione di testo che contiene l'output di un comando/programma, ad es. digitando <kbd>pwd</kbd> si
+            ottiene <samp>/home/emanuele</samp>
+        <dt>var</dt>
+        <dd>
+            una porzione di testo che contiene una variabile, ad es. <var>x</var> + 1 = 0 ha come soluzione <var>x</var>
+            = -1
+        </dd>
+        <dt>kbd</dt>
+        <dd>
+            una porzione di testo che contiene input dell'utente, ad es. digitando <kbd>pwd</kbd> si
+            ottiene <samp>/home/emanuele</samp>
+        </dd>
+        <dt>sub e sup</dt>
+        <dd>
+            una porzione di testo che, in opportuni contesti come le formule matematiche, assume significato particolare
+            quando &egrave; ad apice o a pedice, ad es. <var>x<sub>1</sub></var><sup>2</sup> = 4
+        </dd>
+        <dt>i</dt>
+        <dd>
+            dall'inglese <span lang="en">italic</span>, cio&egrave; corsivo: una porzione di testo differente, ad es. un
+            <i>termine tecnico</i>
+        </dd>
+        <dt>b</dt>
+        <dd>
+            dall'inglese <span lang="en">bold</span>, cio&egrave; grassetto: una porzione di testo su cui porre
+            attenzione, ad es. una <b>parola chiave</b>
+        </dd>
+        <dt>u</dt>
+        <dd>
+            dall'inglese <span lang="en">underlined</span>, cio&egrave; sottolineato: una porzione di testo "annotata",
+            ad es. un'<u>erore ortograffico</u>
+        </dd>
+        <dt>mark</dt>
+        <dd>
+            una porzione di testo evidenziata, ad es. una <q><mark>parte</mark> di una citazione</q>
+        </dd>
+        <dt>span</dt>
+        <dd>
+            una porzione di testo con un significato particolare, non corrispondente ad alcuno di quelli previsti dallo
+            standard HTML, di solito specificato tramite attributi quali class, lang, ad es. <span
+                class="error-message">La password non coincide</span>
+        </dd>
+        <dt>br</dt>
+        <dd>
+            una interruzione di linea, quando è significativa per il contenuto, ad es. in una poesia
+        </dd>
+    </dl>
+    <h2>Un esempio di lettura di questo documento (senza video) tramite uno screen reader</h2>
+    <video src="../video/2020-10-10T17-00-46.mp4" autoplay controls></video>
+    <br>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
