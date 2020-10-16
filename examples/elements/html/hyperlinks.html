@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Hyperlinks</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Hyperlinks basics">
+    <link rel="stylesheet" href="css/core.css">
+    <script src="js/core.js"></script>
+</head>
+
+<body>
+    <h1>Hyperlinks</h1>
+    <p>
+        Gli hyperlinks (collegamenti ipertestuali) sono collegamenti dal documento ad (altre) risorse (vedi <a
+            href="https://it.wikipedia.org/wiki/Collegamento_ipertestuale">wiki</a>) e sono quindi ciò che consente la
+        <em>navigazione</em> nel Web.
+    </p>
+    <p>
+        Sono rappresentati da un elemento <em>a</em> ovvero un <i>anchor</i>.
+        Sfruttano l'attributo <strong>href</strong> per spedificare la destinazione
+    </p>
+    <h2>Sfruttano diversi attributi per specificare il comportamento:</h2>
+    <dl>
+        <dt>href</dt>
+        <dd>l'indirizzo (destinazione) del collegamento (<abbr title="Uniform Resource Locator">url</abbr> della
+            risorsa)</dd>
+        <dt>target</dt>
+        <dd>l'ambito per la navigazione</dd>
+        <dt>download</dt>
+        <dd>per scaricare la risorsa anziché spostarsi ad essa nella navigazione</dd>
+        <dt>ping</dt>
+        <dd>per notificare ad un server l'attivazione del collegamento</dd>
+        <dt>rel</dt>
+        <dd>relazione tra il documento e la risorsa</dd>
+        <dt>hreflang</dt>
+        <dd>lingua della risorsa</dd>
+        <dt>type</dt>
+        <dd>tipo della risorsa</dd>
+        <dt>referrerpolicy</dt>
+        <dd>possibili informazioni sul richiedente la risorsa</dd>
+    </dl>
+    <h2>Esempi di hyperlink per i principali attributi</h2>
+    <ul>
+        <li>
+            href (vedi anche <a href="urls.html">URLs</a>)
+            <ul>
+                <li>
+                    link locale: ad esempio <a href="../index.html">Home page</a>
+                </li>
+                <li>
+                    link remoto: ad esempio <a href="https://en.wikipedia.org/wiki/URL">URL on wikipedia</a>
+                </li>
+                <li>
+                    link ad una parte del documento: ad esempio <a href="#bottom_link">vai a fine pagina</a>
+                </li>
+                <li>
+                    link per e-mail: ad esempio <a href="mailto:god@heaven?subject=paradise">send an e-mail</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            target
+            <ul>
+                <li>
+                    _self: <a href="text.html" target="_self">(default) nella stessa finestra/scheda</a>
+                </li>
+                <li>
+                    _blank: <a href="text.html" target="_blank">in una nuova finestra/scheda</a>
+                </li>
+                <li>
+                    _parent: <a href="text.html" target="_parent">nella finestra/scheda contenitore (per gli iframe)</a>
+                </li>
+                <li>
+                    _top: <a href="text.html" target="_top">nella finestra/scheda superiore</a>
+                </li>
+                <li>
+                    nome_di_un_iframe: <a href="hyperlinks.html" target="target_iframe">nell'iframe specificato</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            download
+            <ul>
+                <li>
+                    <a href="" download="esempio.html">scarica il codice di questa pagina</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <iframe name="target_iframe"></iframe>
+    <a id="bottom_link" href="../index.html"> back to home page </a>
+</body>
+
+</html>

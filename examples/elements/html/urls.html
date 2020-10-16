@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Uniform Resouce Locator</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Uniform Resouce Locator">
+    <link rel="stylesheet" href="css/core.css">
+    <script src="js/core.js"></script>
+</head>
+
+<body>
+    <h1>Uniform Resouce Locator</h1>
+    <p>Uno Uniform Resource Locator (abbreviato <abbr title="Uniform Resource Locator">URL</abbr>) è un tipo di Uniform
+        Resource Identifier (abbreviato <abbr title="Uniform Resource Identifier">URI</abbr>), di cui segue la sintassi,
+        usato per localizzare e recuperare una risorsa.</p>
+    <p>Il seguente URI syntax diagram è tratto da
+        <a href="https://en.wikipedia.org/wiki/File:URI_syntax_diagram.svg"><q>Wikipedia</q></a>:
+    </p>
+    <img src="../images/URI_syntax_diagram.svg" alt="Diagramma di sintassi di un URI">
+    <h2>Parti di un URI</h2>
+    Un URI (e quindi un URL) comprende:
+    <ul>
+        <li>
+            <details open>
+                <summary>uno <b>schema</b> seguito da : che spiega come accedere alla risorsa</summary>
+                Tipicamente indica il protocollo, come ad esempio http, https, ftp, mailto ...
+            </details>
+        </li>
+        <li>
+            <details open>
+                <summary>una <b>autorità</b> preceduta da // (opzionale)</summary>
+                Essa è formata da:
+                <ul>
+                    <li>
+                        <details open>
+                            <summary>una <b>informazione utente</b> seguita da @ (opzionale)</summary>
+                            Le credenziali di accesso, ad esempio username oppure username:password
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>un <b>nome host</b></summary>
+                            Ad esempio il nome di dominio registrato o un indirizzo di rete
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>un <b>numero di porta</b> preceduto da : (opzionale)</summary>
+                            Qualora il server usi un numero di porta non standard
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details open>
+                <summary>un <b>percorso</b> formato da segmenti separati da /</summary>
+                Simile al percorso di un file all'interno del filesystem.
+            </details>
+        </li>
+        <li>
+            <details open>
+                <summary>una <b>query</b> preceduta da ? (opzionale)</summary>
+                Di solito una sequenza di coppie <b>attributo=valore</b> separate da &
+            </details>
+        </li>
+        <li>
+            <details open>
+                <summary>un <b>frammento</b> preceduto da # (opzionale)</summary>
+                Indica una parte specifica della risorsa, ad esempio un elemento in una pagina html
+            </details>
+        </li>
+    </ul>
+    <h3>Esempio</h3>
+    <a href="https://translate.google.it/?op=translate&sl=en&tl=it&text=uwhsy">
+        https://translate.google.it/?op=translate&sl=en&tl=it&text=uwhsy
+    </a>
+    <ul>
+        <li>schema: https</li>
+        <li>autorità(solo host name): translate.google.it</li>
+        <li>percorso vuoto</li>
+        <li>query: op=translate&sl=en&tl=it&text=uwhsy</li>
+    </ul>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
