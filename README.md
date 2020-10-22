@@ -9,10 +9,10 @@ Examples of HTML code for students 3AIN & 3BIN.
 * Editing tools like [Visual studio code](tools.mdhttps://code.visualstudio.com/)
 * [Browser compatibility tool](https://caniuse.com/)
 ### List of examples
-| example                               | topic                     |
-| ------------------------------------- | ------------------------- |
-| [modello.html](examples/modello.html) | modello di documento      |
-| [template](examples/template)         | modello di struttura sito [^1]|
-| [elementi](examples/elements/index.html)         | Esempi di elementi html|
+| example                                  | topic                          |
+| ---------------------------------------- | ------------------------------ |
+| [modello.html](examples/modello.html)    | modello di documento           |
+| [template](examples/template)            | modello di struttura sito [^1] |
+| [elementi](examples/elements/index.html) | Esempi di elementi html        |
 
 [^1] Per siti più complessi conviene creare directory significative per le pagine html con i nomi delle diverse sezioni del sito.

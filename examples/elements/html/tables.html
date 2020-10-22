@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Tabelle</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Tabelle">
+    <link rel="stylesheet" href="css/core.css">
+    <script src="js/core.js"></script>
+</head>
+
+<body>
+    <h1>Tabelle</h1>
+    <h2>Esempio di tabella</h2>
+    <em>Nota: ho aggiunto un bordo per evidenziarla, ma in modo "inappropriato"</em><br>
+    <em>Si noti che l'elemento caption non ha bordo</em>
+    <p>
+        La validazione produce il seguente <b>warning</b>:<br>
+        <q>A table row was 1 columns wide, which is less than the column count established by the first row (9).</q><br>
+        perchè nelle righe "vuote" il conteggio delle celle non corrisponde al numero di celle previsto dal numero di
+        colonne calcolato per la prima riga.
+    </p>
+    <table style="border: 1px solid red">
+        <caption>Esempio di tabella come scacchiera</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+                <th>e</th>
+                <th>f</th>
+                <th>g<            <tr>
+                    <td colspan="8"></td>
+                </tr>
+    
+                <th>8</th>
+                <td>RB</td>
+                <td>NB</td>
+                <td>BB</td>
+                <td>QB</td>
+                <td>KB</td>
+                <td>BB</td>
+                <td>NB</td>
+                <td>RB</td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+                <td>pB</td>
+            </tr>
+            <tr>
+                <th rowspan="4">6<br>5<br>4<br>3</th>
+                <td colspan="8"></td>
+            </tr>
+            <tr>
+                <td colspan="8"></td>
+            </tr>
+            <tr>
+                <td colspan="8">4 x 8 celle vuote</td>
+            </tr>
+            <tr>
+                <td colspan="8"></td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+                <td>pW</td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>RW</td>
+                <td>NW</td>
+                <td>BW</td>
+                <td>QW</td>
+                <td>KW</td>
+                <td>BW</td>
+                <td>NW</td>
+                <td>RW</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+                <th>e</th>
+                <th>f</th>
+                <th>g</th>
+                <th>h</th>
+            </tr>
+        </tfoot>
+    </table>
+    <h2>Elenco degli elementi per tabelle</h2>
+    <dl>
+        <dt>table</dt>
+        <dd>
+            l'intera tabella (contenitore)
+        </dd>
+        <dt>caption</dt>
+        <dd>
+            titolo della tabella (opzionale) (figlio di <i>table</i>)
+        </dd>
+        <dt>thead</dt>
+        <dd>
+            la parte di intestazione (figlio di <i>table</i>)
+        </dd>
+        <dt>tbody</dt>
+        <dd>
+            la parte di contenuto vero e proprio (figlio di <i>table</i>)
+        </dd>
+        <dt>tfoot</dt>
+        <dd>
+            la parte riassuntiva finale (figlio di <i>table</i>)
+        </dd>
+        <dt>tr</dt>
+        <dd>
+            una riga (figlio di <i>thead</i>, <i>tbody</i> o <i>tfoot</i>)
+        </dd>
+        <dt>td</dt>
+        <dd>
+            una cella contenente un dato (figlio di <i>tr</i>)
+        </dd>
+        <dt>th</dt>
+        <dd>
+            una cella contenente un'intestazione (figlio di <i>tr</i>)
+        </dd>
+    </dl>
+    <p>
+        Negli elementi td/th sono possibili attributi <i>rowspan</i> e <i>colspan</i> per estendere la cella a più
+        righe/colonne (vedasi esempio).
+    </p>
+    La struttura tipica dovrebbe essere la seguente:<br>
+    table
+    <ul>
+        <li>
+            caption (opzionale)
+        </li>
+        <li>
+            thead (opzionale)
+            <ul>
+                <li>
+                    tr (uno o più)
+                    <ul>
+                        <li>th e/o td (uno o più)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            tbody (opzionale???)
+            <ul>
+                <li>
+                    tr (uno o più)
+                    <ul>
+                        <li>td e/o th (uno o più)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            tfoot (opzionale)
+            <ul>
+                <li>
+                    tr (uno o più)
+                    <ul>
+                        <li>th e/o td (uno o più)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
