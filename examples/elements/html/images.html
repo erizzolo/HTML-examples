@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Immagini</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Immagini">
+    <link rel="stylesheet" href="css/core.css">
+    <script src="js/core.js"></script>
+</head>
+
+<body>
+    <h1>Immagini</h1>
+    Il modo più semplice di incorporare un'immagine nei documenti è di usare l'elemento <b>img</b>,
+    un elemento <i>vuoto</i> <small>(quindi non ha tag di chiusura)</small> con attributi che specificano la risorsa da
+    visualizzare.
+    <h2>Elenco degli attributi</h2>
+    <dl>
+        <dt>src</dt>
+        <dd>
+            l'<a href="urls.html"><abbr title="Uniform Resource Locator">URL</abbr></a> della risorsa (file immagine) da
+            visualizzare
+        </dd>
+        <dt>alt</dt>
+        <dd>
+            la descrizione alternativa all'immagine, per utenti che non sono in grado di vedere l'immagine (ad esempio
+            perché usano un browser testuale)
+        </dd>
+        <dt>title <small>(opzionale)</small></dt>
+        <dd>
+            in aggiunta all'attributo alt
+        </dd>
+        <dt>width, length <small>(opzionali)</small></dt>
+        <dd>
+            la larghezza e lunghezza in pixel dell'immagine<br>
+            <small>(il loro scopo è quello di rendere più veloce il calcolo del layout del documento)</small>
+        </dd>
+        <dt>usemap</dt>
+        <dd>
+            per le immagini cui si associa una mappa, per rendere diverse aree dell'immagine dei link (vedi <a
+                href="#mappa">esempio</a>)
+        </dd>
+    </dl>
+
+    <h3>Esempi di immagini</h3>
+    <img src="../images/o.png" alt="Anello rosso su sfondo bianco">
+    <img src="../images/Logo_Levi-Ponti_small.PNG" alt="Logo dell'IIS Levi-Ponti" title="Logo">
+    <img src="../images/x.png" alt="Croce blu su sfondo bianco">
+    <h2>Mappe Immagine</h2>
+    <p>
+        Quando ci interessa che tutta l'immagine sia un unico link, è sufficiente inserirla in un elemento <b>a</b>.<br>
+        Se però vogliamo rendere attiva solo una parte dell'immagine, o utilizzare <b>url</b> diversi per diverse parti
+        dell'immagine, dobbiamo ricorrere ad un elemento <b>map</b>.
+    </p>
+    <p>
+        L'elemento <b>map</b>, cui attribuiamo un nome con l'attributo <i>name</i>, contiene la definizione delle aree
+        sensibili dell'immagine, definite con uno o più elementi <b>area</b>; specificando nelle immagini l'attributo
+        <i>usemap</i> con valore uguale al <i>nome</i> di un elemento <b>map</b> associamo ad esse la mappa.
+    </p>
+    <p>
+        Per gli elementi <b>area</b> sono disponibili gli attributi usati per i link e due per specificare la forma:
+    </p>
+    <table>
+        <caption>Possibili valori per gli attributi shape e coords</caption>
+        <thead>
+            <tr>
+                <th>shape</th>
+                <th>coords</th>
+                <th>spiegazione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>default</td>
+                <td><i>nessuno</i></td>
+                <td>l'intera immagine</td>
+            </tr>
+            <tr>
+                <td>circle</td>
+                <td><i>x</i>, <i>y</i>, <i>r</i></td>
+                <td>x e y del centro, raggio</td>
+            </tr>
+            <tr>
+                <td>rect</td>
+                <td><i>x1</i>, <i>y1</i>, <i>x2</i>, <i>y2</i></td>
+                <td>x e y degli angoli in basso a sinistra e in alto a destra</td>
+            </tr>
+            <tr>
+                <td>poly</td>
+                <td><i>x1</i>, <i>y1</i>, ..., <i>xN</i>, <i>yN</i></td>
+                <td>x e y dei vertici del poligono (almeno 3)</td>
+            </tr>
+        </tbody>
+    </table>
+    <em>
+        Si noti che l'origine delle coordinate è l'angolo in alto a sinistra, l'asse x è orientato verso destra e l'asse
+        y verso il basso!
+    </em>
+    <h3 id="mappa">Esempio di mappa: (da <cite>https://html.spec.whatwg.org/multipage/image-maps.html#image-maps</cite>)
+    </h3>
+    <p>
+        Please select a shape:
+        <img src="../images/shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a
+    yellow four-pointed star.">
+        <map name="shapes">
+            <area shape=rect coords="50,50,100,100"> <!-- the hole in the red box -->
+            <area shape=rect coords="25,25,125,125" href="red.html" alt="Red box.">
+            <area shape=circle coords="200,75,50" href="green.html" alt="Green circle.">
+            <area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle.">
+            <area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html"
+                alt="Yellow star.">
+        </map>
+    </p>
+    <pre>
+    &lt;p&gt;
+        Please select a shape:
+        &lt;img src="../images/shapes.png" usemap="#shapes"
+            alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."&gt;
+        &lt;map name="shapes"&gt;
+            &lt;area shape=rect coords="50,50,100,100"&gt; &lt;!-- the hole in the red box --&gt;
+            &lt;area shape=rect coords="25,25,125,125" href="red.html" alt="Red box."&gt;
+            &lt;area shape=circle coords="200,75,50" href="green.html" alt="Green circle."&gt;
+            &lt;area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."&gt;
+            &lt;area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html"
+                alt="Yellow star."&gt;
+        &lt;/map&gt;
+    &lt;/p&gt;
+    </pre>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
