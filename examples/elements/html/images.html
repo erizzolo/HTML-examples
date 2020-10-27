@@ -46,7 +46,82 @@
     <h3>Esempi di immagini</h3>
     <img src="../images/o.png" alt="Anello rosso su sfondo bianco">
     <img src="../images/Logo_Levi-Ponti_small.PNG" alt="Logo dell'IIS Levi-Ponti" title="Logo">
-    <img src="../images/x.png" alt="Croce blu su sfondo bianco">
+    <figure>
+        <img src="../images/x.png" alt="Croce blu su sfondo bianco">
+        <figcaption>
+            Risultato del codice:<br>
+            <code>&lt;img src="../images/x.png" alt="Croce blu su sfondo bianco">
+        </code>
+        </figcaption>
+    </figure>
+
+    <h3>Adattamento delle immagini ai dispositivi/browser utilizzati dall'utente</h3>
+    <p>
+        Ci sono diverse situazioni in cui l'immagine da visualizzare deve essere diversa a seconda di caratteristiche
+        quali:
+    </p>
+    <ul>
+        <li>
+            dimensioni/risoluzione del dispositivo di visualizzazione
+        </li>
+        <li>
+            formati supportati dal browser
+        </li>
+    </ul>
+    <p>
+        In questi casi può essere comodo utilizzare l'elemento <b>picture</b> contenente diversi elementi <b>source</b>
+        ed un elemento
+        <b>img</b> <small>(per compatibilità)</small>.
+    </p>
+    <h3>Elemento figure</h3>
+    <p>
+        L'elemento <b>figure</b> viene spesso utilizzato per raggruppare un elemento ed una didascalia.<br>
+        Pur non essendo limitato alle immagini, esso vi è spesso associato. Tramite l'elemento contenuto
+        <b>figcaption</b> è possibile specificare la didascalia associata.<br>
+        Ad esempio, per una formula matematica:
+    </p>
+    <figure title="Soluzione equazione di secondo grado">
+        <math>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mfrac>
+                <mrow>
+                    <mo form="prefix">−</mo>
+                    <mi>b</mi>
+                    <mo>±</mo>
+                    <msqrt>
+                        <msup>
+                            <mi>b</mi>
+                            <mn>2</mn>
+                        </msup>
+                        <mo>−</mo>
+                        <mn>4</mn>
+                        <mo></mo>
+                        <mi>a</mi>
+                        <mo></mo>
+                        <mi>c</mi>
+                    </msqrt>
+                </mrow>
+                <mrow>
+                    <mn>2</mn>
+                    <mo></mo>
+                    <mi>a</mi>
+                </mrow>
+            </mfrac>
+        </math>
+        <figcaption>
+            La formula risolutiva di un'equazione di secondo grado
+        </figcaption>
+    </figure>
+    o per un'immagine:
+    <figure>
+        <img src="../images/x.png" alt="Croce blu su sfondo bianco">
+        <figcaption>
+            Risultato del codice:<br>
+            <code>&lt;img src="../images/x.png" alt="Croce blu su sfondo bianco">
+        </code>
+        </figcaption>
+    </figure>
     <h2>Mappe Immagine</h2>
     <p>
         Quando ci interessa che tutta l'immagine sia un unico link, è sufficiente inserirla in un elemento <b>a</b>.<br>
