@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Selettori</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Selettori">
+    <link rel="stylesheet" href="../css/selectors.css">
+    <script src="../js/core.js"></script>
+</head>
+
+<body>
+    <h1>Selettori</h1>
+    Aprire gli elementi di dettaglio per vedere più informazioni...
+    <h2>Tabella riassuntiva dei selettori</h2>
+    <details class="list">
+        <summary>
+            Elenco dei selettori, con sintassi, descrizione e link ai dettagli
+        </summary>
+        <figure>
+            <figcaption class="listSyntax">
+                Per la sintassi:
+                <ul>
+                    <li>
+                        <strong>E</strong> rappresenta un nome di elemento HTML, ad esempio p, h1, ...
+                    </li>
+                    <li>
+                        <strong>attr</strong> rappresenta un attributo, ad esempio lang, src, title, ...
+                    </li>
+                    <li>
+                        <strong>valore</strong> rappresenta un valore utilizzabile per un attributo, ad esempio en, 4,
+                        ...
+                    </li>
+                </ul>
+            </figcaption>
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th>Sintassi</th>
+                        <th>Significato</th>
+                        <th>Dettagli</th>
+                        <th>Livello</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>*</td>
+                        <td>qualunque elemento</td>
+                        <td><a href="#universale">selettore universale</a></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>elemento di tipo E</td>
+                        <td><a href="#tipo">selettore di tipo</a></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E[attr] <a href="#attributo">(...)</a></td>
+                        <td>elemento di tipo E con attributo attr</td>
+                        <td><a href="#attributo">selettori di attributo</a></td>
+                        <td>2/3</td>
+                    </tr>
+                    <tr>
+                        <td>E.valore</td>
+                        <td>elemento di tipo E di classe valore</td>
+                        <td><a href="#classe">selettore di classe</a></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E#valore</td>
+                        <td>elemento di tipo E con id valore</td>
+                        <td><a href="#id">selettore di id</a></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E:valore <a href="#pseudoclass">(...)</a></td>
+                        <td>elemento di tipo E con pseudo-classe valore</td>
+                        <td><a href="#pseudoclass">selettori di pseudo-classe</a></td>
+                        <td>1/2/3</td>
+                    </tr>
+                    <tr>
+                        <td>E::valore <a href="#pseudoelement">(...)</a></td>
+                        <td>elemento di tipo E con pseudo-elemento valore</td>
+                        <td><a href="#pseudoelement">selettori di pseudo-elemento</a></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>S1<a href="#combinators">...</a>S2</td>
+                        <td>combinatore tra selettori S1 ed S2</td>
+                        <td><a href="#combinators">combinatori</a></td>
+                        <td>1/2/3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+    </details>
+    <h2>Selettori di elementi <span lang="en">Simple selectors</span></h2>
+    <details class="kind">
+        <summary>
+            Definiscono degli elementi, zero o più, cui applicare le regole specificate.
+        </summary>
+        <h3 id="tipo"><span class="syntax">E</span> Selettore di tipo <span lang="en">Type selector</span></h3>
+        <details class="category">
+            <summary>
+                Seleziona gli elementi in base al loro tipo (nome).
+            </summary>
+            <p>Ad esempio con il selettore <code>time</code> saranno selezionati tutti gli elementi <i>time</i>, come:
+            </p>
+            <p>... correva l'anno <time>2020</time> ...</p>
+        </details>
+        <h3 id="universale"><span class="syntax">*</span> Selettore universale <span lang="en">Universal
+                selector</span></h3>
+        <details class="category">
+            <summary>
+                Seleziona tutti gli elementi del documento (talvolta è implicito).
+            </summary>
+            <p>Ad esempio con il selettore <code>*</code> saranno selezionati tutti gli elementi:</p>
+            <p>in questo documento, è usato per il font</p>
+        </details>
+        <h3 id="attributo"><span class="syntax">E[attr...]</span> Selettori di attributo <span lang="en">Attribute
+                selectors</span></h3>
+        <details class="category">
+            <summary>
+                Selezionano gli elementi in base ad un attributo ed (eventualmente) al suo valore.
+            </summary>
+            <h4><span class="syntax">E[attr]</span> Selettore di presenza <span lang="en">Attribute presence</span>
+            </h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo specificato è presente.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title]</code> saranno selezionati tutti gli elementi con tale
+                    attributo, indipendentemente dal valore, come:</p>
+                <p title="presente">... correva l'anno 2020...</p>
+            </details>
+            <h4><span class="syntax">E[attr="valore"]</span> Selettore di valore <span lang="en">Attribute value</span>
+            </h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo assume il valore specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title="esempio"]</code> saranno selezionati tutti gli elementi con
+                    attributo title il cui valore sia <i>esempio</i>, come:</p>
+                <p title="esempio">... correva l'anno 2020...</p>
+            </details>
+            <h4><span class="syntax">E[attr~="valore"]</span> Selettore di lista con valore <span lang="en">Attribute
+                    list with value</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo è una lista in cui è presente il valore specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title~="example"]</code> saranno selezionati tutti gli elementi
+                    con attributo title in cui sia presente la parola <i>example</i>, come:</p>
+                <p title="an example of attribute selector">... correva l'anno 2020...</p>
+            </details>
+            <h4><span class="syntax">E[attr^="valore"]</span> Selettore di inizio <span lang="en">Attribute begins with
+                    value</span></h4>
+            <details class="case">
+                <summary>Seleziona gli elementi in cui l'attributo ha un valore che inizia come specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title^="e.g."]</code> saranno selezionati tutti gli elementi con
+                    attributo title il cui valore inizi con <i>e.g.</i>, come:</p>
+                <p title="e.g. explanation">e.g. sta per exampli gratia, ovvero ad esempio</p>
+                <p title="another e.g. explanation">e.g. è latino: exampli gratia, ovvero per esempio</p>
+            </details>
+            <h4><span class="syntax">E[attr$="valore"]</span> Selettore di fine <span lang="en">Attribute ends with
+                    value</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo ha un valore che termina come specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title$="e.g."]</code> saranno selezionati tutti gli elementi con
+                    attributo title il cui valore termini con <i>e.g.</i>, come:</p>
+                <p title="explanation of e.g.">e.g. sta per exampli gratia, ovvero ad esempio</p>
+                <p title="explanation of e.g., another">e.g. è latino: exampli gratia, ovvero per esempio</p>
+            </details>
+            <h4><span class="syntax">E[attr*="valore"]</span> Selettore di sottostringa <span lang="en">Attribute
+                    contains value</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo ha un valore che contiene quello specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[title*="the "]</code> saranno selezionati tutti gli elementi con
+                    attributo title il cui valore contenga <i>the </i>, come:</p>
+                <p title="the best">Best example so far</p>
+                <p title="and the other one">Just another example</p>
+                <p title="let's breathe ">...take a breathe</p>
+            </details>
+            <h4><span class="syntax">E[attr|="valore"]</span> Selettore di lista con inizio <span lang="en">Attribute
+                    list beginning with value</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in cui l'attributo ha una lista di valori (separati da -) che inizia con il
+                    valore specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>[hreflang|="fr"]</code> saranno selezionati tutti gli elementi con
+                    attributo hreflang il cui valore è una lista per <i>fr</i> e può proseguire con -, come:</p>
+                <p><a href="https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade" hreflang="fr">CSS in
+                        francese</a></p>
+                <p><a href="https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade" hreflang="fr-CA">CSS in
+                        francese-Canadese</a></p>
+            </details>
+        </details>
+        <h3 id="classe"><span class="syntax">E.valore</span> Selettore di classe <span lang="en">Class selector</span>
+        </h3>
+        <details class="category">
+            <summary>
+                Seleziona gli elementi in base alla classe (valore nella lista dell'attributo class).
+            </summary>
+            <p><small>Siccome <i>class</i> è comunque un attributo, si potrebbe usare la forma E[class~=valore], ma la
+                    sintassi abbreviata è raccomandata perché più semplice, chiara ed evidente.</small></p>
+            <p>Ad esempio con il selettore <code>.consigliato</code> saranno selezionati tutti gli elementi con classe
+                <i>consigliato</i>, come:</p>
+            <p class="consigliato">forma raccomandata del selettore: <i>.consigliato</i></p>
+            <p class="sconsigliato">forma <strong>NON</strong> raccomandata del selettore: <i>[class~=consigliato]</i>
+            </p>
+        </details>
+        <h3 id="id"><span class="syntax">E#valore</span> Selettore di id <span lang="en">Id selector</span></h3>
+        <details class="category">
+            <summary>
+                Seleziona gli elementi in base all'id (valore dell'attributo id).
+            </summary>
+            <p><small>Siccome <i>id</i> è comunque un attributo, si potrebbe usare la forma E[id=valore], ma la
+                    sintassi abbreviata è raccomandata perché più semplice, chiara ed evidente.</small></p>
+            <p>Usare con parsimonia: si ricorda che il valore dell'attributo <i>id</i> dev'essere univoco nel documento.
+            </p>
+            <p>Ad esempio con il selettore <code>#idexample</code> sarà selezionato l'<em>unico</em> elemento con id
+                <i>idexample</i>, come:</p>
+            <p id="idexample">forma raccomandata del selettore: <i>#idexample</i></p>
+            <p id="secondidexample">forma <strong>NON</strong> raccomandata del selettore: <i>[id=idexample]</i>
+            </p>
+        </details>
+        <h3 id="pseudoclass"><span class="syntax">E:valore</span> Selettori di pseudo-classe <span
+                lang="en">Pseudo-class
+                selectors</span></h3>
+        <details class="category">
+            <summary>
+                Selezionano gli elementi in base ad informazioni "esterne" al documento.
+            </summary>
+            <h4><span class="syntax">E:link E:visited</span> Selettore di link (non) visitati <span
+                    lang="en">(un)visited
+                    links</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi (link) in base al fatto che siano stati visitati o meno.
+                </summary>
+                <p>Ad esempio con il selettore <code>:visited</code> saranno selezionati i collegamenti (di solito
+                    <i>a</i>) già visitati, come:</p>
+                <p><a href="https://www.w3.org/wiki/CSS3/Selectors/pseudo-classes/:link">:link pseudo-class</a></p>
+                <p><a href="https://www.w3.org/wiki/CSS3/Selectors/pseudo-classes/:visited">:visited pseudo-class</a>
+                </p>
+            </details>
+            <h4><span class="syntax">E:hover E:active E:focus</span> Selettore di azione utente <span lang="en">user
+                    action</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi (link) in base alla posizione del cursore, attivazione o al focus
+                    (accettazione input).
+                </summary>
+                <p>Ad esempio con il selettore <code>:hover</code> saranno selezionati gli elementi contenenti il
+                    cursore, con il selettore <code>:active</code> saranno selezionati gli elementi attivi, con il
+                    selettore <code>:focus</code> saranno selezionati gli elementi che accettano l'input, come:</p>
+                <fieldset id="user-action">
+                    <legend>:hover, :active, :focus example</legend>
+                    <label>Data<input type="date"></label>
+                    <label>Numero<input type="number"></label>
+                    <button type="reset">Click to make active</button>
+                </fieldset>
+            </details>
+            <h4><span class="syntax">E:target</span> Selettore di destinazione <span lang="en">target</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi che sono destinazione di link interni (frammenti del documento).
+                </summary>
+                <p>Ad esempio con il selettore <code>:target</code> saranno selezionati gli elementi destinazione di
+                    link interni, come:</p>
+                <p><a href="#nextparagraph">link al prossimo paragrafo</a></p>
+                <p id="nextparagraph">example of a target fragment</p>
+                <p><small>Funziona dopo aver attivato il link...</small></p>
+            </details>
+            <h4><span class="syntax">E:lang(valore)</span> Selettore di lingua <span lang="en">language</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi che sono destinazione di link interni (frammenti del documento).
+                </summary>
+                <p>Ad esempio con il selettore <code>:lang(ru)</code> saranno selezionati gli elementi in lingua
+                    russa (indipendentemente dal fatto che la lingua sia stata specificata tramite l'attributo
+                    lang oppure derivi da un ancestor), come:</p>
+                <p lang="ru">Alcune parole in russo:<span title="mamma">мама</span>, <span title="papà">отец</span>,
+                    <span title="io">я</span>.</p>
+                <p><small>Non è equivalente a [lang|=ru]</small></p>
+            </details>
+            <h4><span class="syntax">E:enabled E:disable E:checked E:indeterminate</span> Selettore di stato UI
+                <span lang="en">UI element state</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi (di input dell'interfaccia utente) in base al loro stato, (dis)abilitati,
+                    selezionati o indeterminati.
+                </summary>
+                <p>Ad esempio con il selettore <code>:enabled</code> saranno selezionati gli elementi abilitati, con
+                    il selettore <code>:disabled</code> saranno selezionati gli elementi disabilitati, con il
+                    selettore <code>:checked</code> saranno selezionati gli elementi selezionati, con il
+                    selettore <code>:indeterminate</code> saranno selezionati gli elementi indeterminati, come:</p>
+                <fieldset id="ui-states">
+                    <legend>:UI states example</legend>
+                    Your preferred language is:
+                    <ul>
+                        <li><label>Javascript<input type="radio" name="language" value="JS"></label></li>
+                        <li><label>Java<input type="radio" name="language" value="Java"></label></li>
+                        <li><label>Haskell<input type="radio" name="language" value="H"></label></li>
+                    </ul>
+                    <button type="reset" disabled>Sorry, I'm disabled at the moment</button>
+                    <label>Numero<input type="number" value="15"></label>
+                    <label>You love PHP</label><input type="checkbox">
+                </fieldset>
+            </details>
+            <h4><span class="syntax">E:vari...</span> Selettore strutturale <span lang="en">Structural selector</span>
+            </h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi in base alla loro posizione nella struttura ad albero del documento.
+                </summary>
+                <p>Ce ne sono diversi, ma si possono distinguere due tipologie:</p>
+                <ul>
+                    <li>indifferenti al tipo (con <i>child</i> nel nome)</li>
+                    <li>sensibili al tipo (con <i>of-type</i> nel nome)</li>
+                </ul>
+                <p>Quelli più generali sono <i>:nth-child()</i>, <i>:nth-of-type()</i> e gli analoghi
+                    <i>:nth-last-child()</i>, <i>:nth-last-of-type()</i>, con sintassi simile.</p>
+                <p>Come esempio si consideri la sintassi di :nth-child.</p>
+                <p>La forma generale è :nth-child(<i>a</i>n+<i>b</i>) dove <i>a</i> e <i>b</i> sono due numeri interi
+                </p>
+                <p>Esso seleziona gli elementi con <i>a</i>n+<i>b</i>-1 <i>fratelli</i> <span lang="en">siblings</span>
+                    nella struttura del documento.</p>
+                <p>Quindi i figli <span lang="en">children</span> b, b+a, b+2a, b+3a, ...</p>
+                <p>Ad esempio :nth-child(3n+1) seleziona i figli b=1, b+a=4, b+2a=7, b+3a=10, ... (uno ogni 3)</p>
+                <p><small>Si noti che a e b possono essere negativi!!</small></p>
+                <p><small>Si noti che (2n+1) può essere sostituito da <i>odd</i> e (2n+0) da <i>even</i></small></p>
+                <p>Qui è usato per realizzare una scacchiera:</p>
+                <pre>
+                <code>
+            #scacchiera td { /* tutte le celle */
+                background-color: darkblue;
+                color: aqua;
+            }
+            /* celle dispari/pari in righe pari/dispari */
+            #scacchiera tr:nth-child(even) td:nth-child(odd),
+            #scacchiera tr:nth-child(2n+1) td:nth-child(2n) {
+                background-color: aqua;
+                color: darkblue;
+            }
+                </code>
+            </pre>
+                <table id="scacchiera">
+                    <caption>Esempio di tabella come scacchiera</caption>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>a</th>
+                            <th>b</th>
+                            <th>c</th>
+                            <th>d</th>
+                            <th>e</th>
+                            <th>f</th>
+                            <th>g</th>
+                            <th>h</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>8</th>
+                            <td>RB</td>
+                            <td>NB</td>
+                            <td>BB</td>
+                            <td>QB</td>
+                            <td>KB</td>
+                            <td>BB</td>
+                            <td>NB</td>
+                            <td>RB</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                            <td>pB</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                            <td>pW</td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>RW</td>
+                            <td>NW</td>
+                            <td>BW</td>
+                            <td>QW</td>
+                            <td>KW</td>
+                            <td>BW</td>
+                            <td>NW</td>
+                            <td>RW</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>a</th>
+                            <th>b</th>
+                            <th>c</th>
+                            <th>d</th>
+                            <th>e</th>
+                            <th>f</th>
+                            <th>g</th>
+                            <th>h</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </details>
+            <h4><span class="syntax">E:not(selettore)</span> Selettore di negazione <span lang="en">negation</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi che <strong>NON</strong> soddisfano il selettore specificato.
+                </summary>
+                <p>Ad esempio con il selettore <code>:not(:lang(it))</code> saranno selezionati gli elementi non in
+                    lingua italiana, come:</p>
+                <p>some words in (lowercase!) english: <i lang="en">MoTher</i>, <i lang="en">FATHER</i>,
+                    <i lang="en">I</i>.</p>
+            </details>
+        </details>
+        <h3 id="pseudoelement"><span class="syntax">E::valore</span> Selettori di pseudo-elemento <span
+                lang="en">Pseudo-element selectors</span></h3>
+        <details class="category">
+            <summary>
+                Creano (e selezionano) degli elementi "virtuali" nel documento.
+            </summary>
+            <h4><span class="syntax">E:first-line</span> Selettore di prima linea <span lang="en">first line</span></h4>
+            <details class="case">
+                <summary>
+                    (Crea e) Seleziona la prima linea di un elemento.
+                </summary>
+                <p>Ad esempio con il selettore <code>::first-line</code> sarà selezionata la prima riga del seguente
+                    paragrafo:</p>
+                <p id="firstline">Quel ramo del lago di Como, che volge a mezzogiorno, tra due catene non interrotte di
+                    monti, tutte a seni e a golfi, a seconda dello sporgere e del rientrare di quelli, vien, quasi a un
+                    tratto, a ristringersi, e a prender corso e figura di fiume, tra un promontorio a destra ...</p>
+            </details>
+            <h4><span class="syntax">E:first-letter</span> Selettore di prima lettera <span lang="en">first
+                    letter</span></h4>
+            <details class="case">
+                <summary>
+                    (Crea e) Seleziona la prima lettera di un elemento.
+                </summary>
+                <p>Ad esempio con il selettore <code>::first-letter</code> sarà selezionata la prima lettera del
+                    seguente
+                    paragrafo:</p>
+                <p id="firstletter">Quel ramo del lago di Como, che volge a mezzogiorno, tra due catene non interrotte
+                    di monti, tutte a seni e a golfi, a seconda dello sporgere e del rientrare di quelli, vien, quasi a
+                    un tratto, a ristringersi, e a prender corso e figura di fiume, tra un promontorio a destra ...</p>
+            </details>
+        </details>
+    </details>
+    <h2 id="combinators"><span class="syntax"></span> Combinazioni di selettori <span lang="en">Combinators</span>
+    </h2>
+    <details class="category">
+        <summary>Combinano diversi selettori tramite relazioni basate sulla struttura del documento</summary>
+        <h3 id="descendant"><span class="syntax">S1 S2</span> Combinatore di discendenza <span lang="en">Descendant
+                combinator</span></h3>
+        <details class="category">
+            <summary>
+                Seleziona tutti gli elementi del documento selezionati da S2 che sono discendenti di un elemento
+                selezionato da S1.
+            </summary>
+            <p class="descendant">In questo paragrafo tutti gli <span>span</span> hanno un bordo, anche quelli contenuti
+                in uno <strong>strong <span>(with this span inside)</span></strong></p>
+            <p>In questo paragrafo invece né gli <span>span</span> nè gli <strong>strong</strong> hanno un bordo</p>
+        </details>
+        <h3 id="child"><span class="syntax">S1>S2</span> Combinatore di discendenza diretta<span lang="en">Child
+                combinator</span></h3>
+        <details class="category">
+            <summary>
+                Seleziona tutti gli elementi del documento selezionati da S2 che sono discendenti diretti di un elemento
+                selezionato da S1.
+            </summary>
+            <p class="child">In questo paragrafo tutti i <mark>mark</mark> hanno un bordo, ma non quelli contenuti in
+                uno <strong><mark>strong</mark></strong></p>
+        </details>
+        <h3 id="sibling"><span class="syntax"></span> Combinatori di "fratellanza"<span lang="en">Sibling
+                combinators</span></h3>
+        <details class="category">
+            <summary>
+                Selezionano elementi discendenti diretti dello stesso elemento.
+            </summary>
+            <h4 id="nextsibling"><span class="syntax">S1+S2</span> Combinatori del prossimo fratello<span
+                    lang="en">Next-sibling combinator</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi selezionati da S2 che sono i discendenti immediatamente successivi a quelli
+                    selezionati da S1 dei medesimi elementi.
+                </summary>
+                <p class="next">In questo paragrafo tutti i <mark>mark</mark> immediatamente succesivi ad uno
+                    <strong>strong</strong> hanno un bordo, ma non gli altri come il primo <mark>mark</mark> oppure un
+                    secondo <mark>mark</mark></p>
+            </details>
+            <h4 id="subsequentsibling"><span class="syntax">S1~S2</span> Combinatori dei fratelli successivi<span
+                    lang="en">Subsequent-sibling combinator</span></h4>
+            <details class="case">
+                <summary>
+                    Seleziona gli elementi selezionati da S2 che sono i discendenti successivi a quelli selezionati da
+                    S1 dei medesimi elementi.
+                </summary>
+                <p class="subsequent">In questo paragrafo tutti gli <strong>strong</strong> succesivi ad uno
+                    <mark>mark</mark> hanno un <strong>bordo</strong>, <strong>non</strong> solo il
+                    <strong>primo</strong></p>
+            </details>
+        </details>
+    </details>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+/* core style */
+
+/* selettore di attributo */
+
+[title] {
+    color: bisque;
+}
+
+span[lang=en] {
+    color: green;
+}
+
+/*selettore di pseudo-classe */
+
+dd:hover {
+    border: 3px solid red;
+}
+
+/* selettore universale */
+
+* {
+    color: darkblue;
+}
+
+/* selettore di elemento */
+
+img {
+    border: 4px solid;
+    border-color: green yellow red blue;
+}
+
+/* selettore di classe */
+
+.importante
+/* *[class~=importante] */
+
+    {
+    color: salmon;
+}
+
+.fondamentale {
+    color: burlywood;
+}
+
+.importante.fondamentale {
+    color: firebrick;
+}
+
+.sconsigliato {
+    color: red;
+}
+
+.raccomandato {
+    color: green;
+}
+
+.use-case {
+    border: 2px solid green;
+}
+
+/* pseudo-classe */
+
+.raccomandato a::after {
+    content: "→";
+}
+
+/* gruppo di selettori */
+
+ul, dl, ol {
+    border: 5px red;
+    border-style: double;
+}
+
+body h1+p {
+    text-align: right;
+    text-indent: 25%;
+}
+
+/* equivale ai tre seguenti
+ul
+dl {
+    border: 5px  red;
+    border-style: double;
+}
+ol {
+    border: 5px  red;
+    border-style: double;
+}
+*/
+
+*[style]:hover::after {
+    content: attr(style);
+    position: relative;
+    left: 0;
+    top: 24px;
+    min-width: 200px;
+    border: 1px #aaaaaa solid;
+    border-radius: 10px;
+    background-color: #ffffcc;
+    padding: 12px;
+    color: #000000;
+    font-size: 14px;
+    z-index: 1;
+}
+
+/* selettore di id (evitabile...) */
+
+#captiondefinition {
+    color: purple;
+}
+
+#scacchiera td {
+    background-color: darkblue;
+    color: aqua;
+}
+
+#scacchiera tr:nth-child(even) td:nth-child(odd), #scacchiera tr:nth-child(odd) td:nth-child(even) {
+    background-color: aqua;
+    color: darkblue;
+}

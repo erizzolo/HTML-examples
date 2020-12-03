@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Esempio di stili interni</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Esempio di stili interni">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/core.js"></script>
+    <style>
+        h1 {
+            background-color: aliceblue;
+        }
+
+        h1+p {
+            text-align: justify;
+            text-indent: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Esempio di stili interni</h1>
+    <p>
+        Gli stili <b>interni</b> specificano le regole da applicare aggiungendo un elemento <code>style</code> con le
+        dichiarazioni volute all'interno dell'elemento <i>head</i> del documento.
+    </p>
+    <p>
+        Naturalmente, poichè l'elemento <i>style</i> non è associato ad uno specifico elemento del documento, è
+        necessario specificare tramite dei <b>selettori</b> a quali elementi applicare determinate dichiarazioni.
+    </p>
+    <p>
+        I possibili selettori ed il loro significato sono comuni anche ai fogli di stile esterni. Vedere <a
+            href="selectors.html">qui</a> per i dettagli.
+    </p>
+    <p>
+        Ad esempio, il paragrafo dopo il titolo era associato tramite un opportuno selettore al seguente ruleset:
+    <pre>
+    <code>
+        h1+p {
+            text-align: justify;
+            text-indent: 10%;
+        }
+    </code>
+    </pre>
+    e di conseguenza appariva "giustificato" e con la prima riga rientrata del 10%.
+    <p>
+        Questo modo di attribuire gli stili è meno specifico degli stili inline ed ugualmente specifico rispetto agli
+        stili esterni: in quest'ultimo caso prevale l'ordine di dichiarazione (l'ultima regola specificata ha la
+        precedenza).
+    </p>
+    <p>
+        Risulta più comodo da utilizzare rispetto agli stili online per un singolo documento, ma più scomodo degli stili
+        esterni quando si tratta di applicare gli stili a molti documenti di un sito. In questo caso, eventuali
+        modifiche ai valori delle proprietà devono essere ripetute per tutti i documenti.
+    </p>
+    <p class="use-case">
+        Si utilizza solo per documenti isolati, ad esempio una pagina unica e particolare di un sito, per il
+        quale si vuole un aspetto diversificato rispetto alle altre.
+    </p>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

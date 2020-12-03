@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Esempio di stili inline</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Esempio di stili inline">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/core.js"></script>
+</head>
+
+<body>
+    <h1 style="background-color: aliceblue;">Esempio di stili inline</h1>
+    <p style="text-align: justify; text-indent: 10%;">
+        Gli stili <b>inline</b> specificano le regole da applicare aggiungendo un attributo <code>style</code> con le
+        dichiarazioni volute nel tag di apertura di un elemento.
+    </p>
+    <p>
+        Ad esempio, il paragrafo precedente aveva come tag di apertura il seguente:
+    <pre>
+    <code>
+        &lt;p style="text-align: justify; text-indent: 10%;"&gt;
+    </code>
+    </pre>
+    e di conseguenza appariva "giustificato" e con la prima riga rientrata del 10%.
+    <p style="border: 2px solid yellow; font-style: oblique;">
+        Si noti che l'attributo deve comparire una sola volta con l'elenco delle proprietà e dei rispettivi valori.
+        Se nel tag di apertura sono presenti due attributi style, uno sarà ignorato.
+    </p>
+    <p>
+        Questo modo di attribuire gli stili è molto specifico ed ha la precedenza su eventuali stili interni od
+        esterni.
+    </p>
+    <p>
+        Peraltro risulta scomodo da utilizzare poichè per attribuire stili uguali a più elementi l'attributo va
+        ripetuto, ed eventuali modifiche ai valori delle proprietà devono essere ripetute per tutti gli elementi.
+    </p>
+    <p style="border: 2px solid green;">
+        Si utilizza solo per casi particolari, ad esempio un unico elemento in una particolare pagina di un sito, per il
+        quale si vuole un aspetto diversificato rispetto alla norma.
+    </p>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

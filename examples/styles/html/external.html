@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Esempio di stili esterni</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Esempio di stili esterni">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/core.js"></script>
+</head>
+
+<body>
+    <h1>Esempio di stili esterni</h1>
+    <p>
+        Gli stili <b>esterni</b> specificano le regole da applicare aggiungendo un elemento <code>link</code> che
+        collega il documento ad un file esterno con le dichiarazioni volute e relazione di tipo <code>stylesheet</code>
+        al documento. Ad esempio:
+    <pre>
+            <code>
+        &lt;link rel="stylesheet" href="../css/core.css">
+            </code>
+        </pre>
+    <p>
+        Naturalmente, poichè la risorsa esterna non è associata ad uno specifico elemento del documento, è
+        necessario specificare tramite dei <b>selettori</b> a quali elementi applicare determinate dichiarazioni.
+    </p>
+    <p>
+        I possibili selettori ed il loro significato sono comuni anche ai fogli di stile interni. Vedere <a
+            href="selectors.html">qui</a> per i dettagli.
+    </p>
+    <p>
+        Ad esempio, il paragrafo dopo il titolo era associato tramite un opportuno selettore al seguente ruleset:
+    <pre>
+    <code>
+        h1+p {
+            text-align: right;
+            text-indent: 25%;
+        }
+    </code>
+    </pre>
+    e di conseguenza appariva "allineato a destra" e con la prima riga rientrata del 25%.
+    <p>
+        Questo modo di attribuire gli stili è meno specifico degli stili inline ed ugualmente specifico rispetto agli
+        stili interni: in quest'ultimo caso prevale l'ordine di dichiarazione (l'ultima regola specificata ha la
+        precedenza).
+    </p>
+    <p>
+        Risulta il più comodo da utilizzare rispetto agli stili online ed esterni, sia per un singolo documento che per
+        molti, quando si vuole un aspetto uniforme in tutto il sito.
+    </p>
+    <p class="use-case">
+        Si utilizza <em>sempre</em>, tranne in casi particolari per cui è più comodo usare le altre modalità
+        (inline/interni).
+    </p>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

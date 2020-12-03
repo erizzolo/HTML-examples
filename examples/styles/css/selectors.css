@@ -1,0 +1,244 @@
+/* core style */
+
+details[open]>summary {
+    color: red;
+}
+
+details.list>summary {
+    font-size: x-medium;
+}
+
+details.kind>summary {
+    font-size: large;
+}
+
+details.category>summary {
+    font-weight: bold;
+    font-size: large;
+}
+
+details.kind {
+    margin-left: 5%;
+}
+
+details.category {
+    margin-left: 5%;
+}
+
+details.case {
+    margin-left: 5%;
+}
+
+/*
+summary * {
+    display: inline;
+}
+
+summary h1 {
+    display: block;
+}
+*/
+
+/*
+summary hgroup, summary h2, summary h3 {
+    display: inline;
+}
+
+*/
+
+[lang="en"]::before {
+    content: "(aka "
+}
+
+[lang="en"]::after {
+    content: ")"
+}
+
+/*
+.category {
+    margin-left: 20px;
+}
+
+.case {
+    margin-left: 40px;
+}
+*/
+
+/* Example selectors */
+
+/* Element selector */
+
+time {
+    border: 2px solid red;
+}
+
+/* Universal selector */
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Attribute presence selector */
+
+[title] {
+    border: 2px solid red;
+}
+
+/* Attribute value selector */
+
+[title="esempio"] {
+    border: 2px solid green;
+}
+
+/* Attribute list with value selector */
+
+[title~="example"] {
+    border: 2px solid green;
+}
+
+/*Attribute begins with value selector */
+
+[title^="e.g."] {
+    border: 2px solid green;
+}
+
+/*Attribute ends with value selector */
+
+[title$="e.g."] {
+    border: 2px solid green;
+}
+
+/*Attribute contains value selector */
+
+[title*="the "] {
+    border: 2px solid green;
+}
+
+/* Attribute list beginning with value selector */
+
+[hreflang|="fr"] {
+    border: 2px solid green;
+}
+
+/* Class selector */
+
+.consigliato {
+    border: 2px solid green;
+}
+
+/* Id selector */
+
+#idexample {
+    border: 2px solid green;
+}
+
+/* Link pseudo-classes selectors */
+
+:link {
+    border: 2px solid blue;
+}
+
+:visited {
+    border: 2px solid green;
+}
+
+/* User action pseudo-classes selectors */
+
+#user-action input:hover {
+    border: 2px solid blue;
+}
+
+#user-action input:focus {
+    border: 2px solid black;
+}
+
+#user-action :active {
+    border: 2px solid green;
+}
+
+/* Target pseudo-class selectors */
+
+p:target {
+    border: 2px solid green;
+}
+
+/* Language pseudo-class selectors */
+
+span:lang(ru) {
+    border: 2px solid green;
+}
+
+/* UI element state pseudo-classes selectors */
+
+#ui-states :enabled {
+    height: 20px;
+    border-bottom: 2px solid green;
+}
+
+#ui-states :disabled {
+    border-bottom: 12px solid black;
+}
+
+#ui-states :checked {
+    width: 40px;
+    height: 40px;
+    border-top: 12px solid green;
+}
+
+#ui-states :indeterminate {
+    background-color: gray;
+}
+
+/* Structural pseudo-classes selectors */
+
+#scacchiera td {
+    background-color: darkblue;
+    color: aqua;
+}
+
+#scacchiera tr:nth-child(even) td:nth-child(odd), #scacchiera tr:nth-child(2n+1) td:nth-child(2n) {
+    background-color: aqua;
+    color: darkblue;
+}
+
+/* Negation pseudo-class selector */
+
+i:not(:lang(it)) {
+    text-transform: lowercase;
+}
+
+/* First line pseudo-element selector */
+
+#firstline::first-line {
+    font-size: x-large;
+}
+
+/* First letter pseudo-element selector */
+
+#firstletter::first-letter {
+    font-size: x-large;
+}
+
+/* Descendant combinator */
+
+.descendant span {
+    border: 1px solid red;
+}
+
+/* Child combinator */
+
+.child>mark {
+    border: 1px solid red;
+}
+
+/* Next sibling combinator */
+
+.next strong+mark {
+    border: 1px solid red;
+}
+
+/* Subsequent sibling combinator */
+
+.subsequent mark~strong {
+    border: 1px solid red;
+}
