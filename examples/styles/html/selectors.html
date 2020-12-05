@@ -283,7 +283,8 @@
             <h4><span class="syntax">E:lang(valore)</span> Selettore di lingua <span lang="en">language</span></h4>
             <details class="case">
                 <summary>
-                    Seleziona gli elementi che sono destinazione di link interni (frammenti del documento).
+                    Seleziona gli elementi il cui contenuto è in una determinata lingua (specificata con l'attributo
+                    lang o per eredità da un altro elemento).
                 </summary>
                 <p>Ad esempio con il selettore <code>:lang(ru)</code> saranno selezionati gli elementi in lingua
                     russa (indipendentemente dal fatto che la lingua sia stata specificata tramite l'attributo
@@ -304,7 +305,7 @@
                     selettore <code>:checked</code> saranno selezionati gli elementi selezionati, con il
                     selettore <code>:indeterminate</code> saranno selezionati gli elementi indeterminati, come:</p>
                 <fieldset id="ui-states">
-                    <legend>:UI states example</legend>
+                    <legend>UI states example</legend>
                     Your preferred language is:
                     <ul>
                         <li><label>Javascript<input type="radio" name="language" value="JS"></label></li>
@@ -490,7 +491,8 @@
             <summary>
                 Creano (e selezionano) degli elementi "virtuali" nel documento.
             </summary>
-            <h4><span class="syntax">E:first-line</span> Selettore di prima linea <span lang="en">first line</span></h4>
+            <h4><span class="syntax">E::first-line</span> Selettore di prima linea <span lang="en">first line</span>
+            </h4>
             <details class="case">
                 <summary>
                     (Crea e) Seleziona la prima linea di un elemento.
@@ -501,7 +503,7 @@
                     monti, tutte a seni e a golfi, a seconda dello sporgere e del rientrare di quelli, vien, quasi a un
                     tratto, a ristringersi, e a prender corso e figura di fiume, tra un promontorio a destra ...</p>
             </details>
-            <h4><span class="syntax">E:first-letter</span> Selettore di prima lettera <span lang="en">first
+            <h4><span class="syntax">E::first-letter</span> Selettore di prima lettera <span lang="en">first
                     letter</span></h4>
             <details class="case">
                 <summary>
