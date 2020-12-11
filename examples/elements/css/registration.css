@@ -1,0 +1,61 @@
+/* holiday form style */
+
+/* just to define a few variables (name MUST begin with --) */
+
+* {
+    /* border colour */
+    --colour: black;
+    /* form preferred width */
+    --form-width: 300px;
+}
+
+/* a sticky footer */
+
+footer {
+    margin-top: 10px;
+    background-color: aqua;
+    opacity: 1;
+    border-top: 2px solid var(--colour);
+    position: sticky;
+    bottom: 0%;
+}
+
+/* rules to hide/show title and change label : no js required !!! */
+
+#hideshow:not(:checked)~label:nth-of-type(2) {
+    display: none;
+}
+
+#hideshow:checked~label:nth-of-type(1), #hideshow:checked~h1:nth-of-type(1) {
+    display: none;
+}
+
+/* flex container */
+
+form {
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: calc((100vw - var(--form-width)) / 2);
+    margin-right: calc((100vw - var(--form-width)) / 2);
+}
+
+/* separate lines for inputs, except radio and checkbox */
+
+input:not([type="radio"]):not([type="checkbox"]) {
+    display: block;
+    clear: both;
+    text-align: start;
+}
+
+/* red flag for required inputs */
+
+input[required] {
+    padding-left: 1em;
+    background-image: url("../images/o.png");
+    background-clip: padding-box;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: 0.5em;
+}

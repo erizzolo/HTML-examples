@@ -1,0 +1,46 @@
+/* scacchi style */
+
+/* Basic checkboard styling */
+
+.scacchiera td {
+    background-color: darkblue;
+    color: aqua;
+}
+
+.scacchiera tr:nth-child(even) td:nth-child(odd), .scacchiera tr:nth-child(2n+1) td:nth-child(2n) {
+    background-color: aqua;
+    color: darkblue;
+}
+
+/* rules to reverse the checkboard : no js required !!! */
+
+/* hide the input checkbox */
+
+#reverse {
+    display: none;
+}
+
+/* style the labels as buttons */
+
+#reverse~label {
+    padding: 10px;
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+/* choose which label to show according to input status */
+
+#reverse:not(:checked)~#white {
+    display: none;
+}
+
+#reverse:checked~#black {
+    display: none;
+}
+
+/* choose whether we need to transform the checkboard according to input status */
+
+#reverse:checked~figure>.scacchiera, #reverse:checked~figure>.scacchiera td, #reverse:checked~figure>.scacchiera th, #reverse:checked~figure>.scacchiera caption {
+    transform: rotateZ(180deg);
+    transition: transform 2s linear 0.2s;
+}

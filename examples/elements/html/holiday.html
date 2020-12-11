@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<!--
+        for example
+        ?surname=Ri&name=em&birthdate=1996-05-08&country=Italia&town=Venezia&address=via&phone=326958674&email=a%40b.com&preferred-contact=none&start=2020-12-28&days=7&arrival=&adults=1&children=0&preferred-housing=bungalow&allergy=on&allergy-spec=tutte&interests=rock&interests=tango&comments=che+schifo&privacy=on
+-->
+
+<head>
+        <title>Prenotazione vacanza</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Emanuele Rizzolo">
+        <meta name="description" content="Esempio di form per prenotazione">
+        <link rel="stylesheet" href="../css/core.css">
+        <link rel="stylesheet" href="../css/holiday.css">
+        <script src="../js/core.js"></script>
+</head>
+
+<body>
+        <form action="">
+                <h1>Prenota la tua vacanza!!!</h1>
+                <details class="istruzioni">
+                        <summary>Istruzioni per la compilazione</summary>
+                        <ul>
+                                <li>i campi obbligatori sono indicati con <img src="../images/o.png" width="16"
+                                                height="16" alt="cerchio rosso">...</li>
+                                <li>è possibile salvare le informazioni per riprendere la compilazione più tardi</li>
+                        </ul>
+                </details>
+                <div class="flex">
+                        <fieldset>
+                                <legend>Dati personali</legend>
+                                <label for="surname">cognome<input type="text" id="surname" name="surname"
+                                                autocomplete="family-name" autocapitalize="words" required minlength="2"
+                                                maxlength="30" size="15" placeholder="Ad esempio: Rizzolo"></label>
+                                <label for="name">nome<input type="text" id="name" name="name" autocomplete="given-name"
+                                                autocapitalize="words" required minlength="2" maxlength="30" size="15"
+                                                placeholder="Ad esempio: Emanuele"></label>
+                                <!-- placeholder has no effect on input "date" in Firefox -->
+                                <label for="birthdate">data di nascita<input type="date" id="birthdate" name="birthdate"
+                                                autocomplete="bday" required min="1900-01-01" max="2002-12-31"></label>
+                        </fieldset>
+                        <fieldset>
+                                <legend>Informazioni di contatto</legend>
+                                <label for="country">nazione<input type="text" id="country" name="country"
+                                                autocomplete="country" autocapitalize="words" required minlength="2"
+                                                maxlength="30" size="15" placeholder="Ad esempio: Italia"
+                                                list="countries"></label>
+                                <label for="town">citta<input type="text" id="town" name="town" autocomplete="home"
+                                                autocapitalize="words" required minlength="2" maxlength="30" size="15"
+                                                placeholder="Ad esempio: Venezia" list="towns"></label>
+                                <label for="address">indirizzo<input type="text" id="address" name="address"
+                                                autocomplete="address-line1" required minlength="2" maxlength="30"
+                                                size="15" placeholder="Ad esempio: Via Roma 15/C"></label>
+                                <!-- input "tel" doesn't seem to work unless you use a pattern -->
+                                <label for="phone">telefono<input type="tel" id="phone" name="phone" autocomplete="tel"
+                                                required size="10" placeholder="Ad esempio: +39 326845127"></label>
+                                <label for="email">posta elettronica<input type="email" id="email" name="email"
+                                                autocomplete="email" required size="15"
+                                                placeholder="Ad esempio: user@domain.com"></label>
+                                <fieldset>
+                                        <legend>Preferenza di contatto</legend>
+                                        <label for="pref-phone"><input type="radio" id="pref-phone"
+                                                        name="preferred-contact" value="sms">SMS</label>
+                                        <label for="pref-mail"><input type="radio" id="pref-mail"
+                                                        name="preferred-contact" value="email">email</label>
+                                        <label for="pref-none"><input type="radio" id="pref-none"
+                                                        name="preferred-contact" value="none" checked>nulla</label>
+                                </fieldset>
+                        </fieldset>
+                        <datalist id="countries">
+                                <option value="Italia">Italy</option>
+                                <option value="Francia">France</option>
+                                <option value="Spagna">España</option>
+                                <option value="Germania">Deutschland</option>
+                        </datalist>
+                        <datalist id="towns">
+                                <option value="Venezia">Venezia</option>
+                                <option value="Mirano">Mirano</option>
+                                <option value="Milano">Milano</option>
+                                <option value="Torino">Torino</option>
+                        </datalist>
+                        <fieldset>
+                                <legend>Scelta vacanza</legend>
+                                <label for="start">inizio<input type="date" id="start" name="start" required
+                                                min="2020-12-28" max="2021-12-31" step="7"></label>
+                                <label for="days">giorni<input type="number" id="days" name="days" required min="1"
+                                                max="30" value="7"
+                                                title="Numero di giorni di permanenza (da 1 a 30)"></label>
+                                <label for="arrival">arrivo previsto<input type="time" id="arrival" name="arrival"
+                                                min="08:00" max="22:00" step="900"
+                                                title="Orario di arrivo (dalle 08:00 alle 22:00)"></label>
+                                <label for="adults">adulti<input type="number" id="adults" name="adults" required
+                                                min="1" max="10" title="Numero di adulti (da 1 a 10)"></label>
+                                <label for="children">bambini<input type="number" id="children" name="children" required
+                                                min="0" max="10"
+                                                title="Numero di bambini di età inferiore ai 10 anni (da 0 a 10)"></label>
+                                <fieldset>
+                                        <legend>sistemazione</legend>
+                                        <label for="pref-room"><input type="radio" id="pref-room"
+                                                        name="preferred-housing" value="room" required
+                                                        checked>room</label>
+                                        <label for="pref-suite"><input type="radio" id="pref-suite"
+                                                        name="preferred-housing" value="suite" required>suite</label>
+                                        <label for="pref-chalet"><input type="radio" id="pref-chalet"
+                                                        name="preferred-housing" value="chalet" required>chalet</label>
+                                        <label for="pref-bungalow"><input type="radio" id="pref-bungalow"
+                                                        name="preferred-housing" value="bungalow"
+                                                        required>bungalow</label>
+                                </fieldset>
+                        </fieldset>
+                        <fieldset>
+                                <legend>Osservazioni aggiuntive</legend>
+                                <label for="comments" title="Pregasi specificare ulteriori commenti">ulteriori
+                                        commenti
+                                        <textarea id="comments" name="comments" cols="60" rows="5" maxlength="300"
+                                                placeholder="I vostri commenti sono benvenuti..."></textarea>
+                                </label>
+                                ulteriori interessi
+                                <label for="interests" title="Pregasi specificare ulteriori interessi">
+                                        <select id="interests" name="interests" multiple>
+                                                <optgroup label="Sports">
+                                                        <option value="tennis">tennis</option>
+                                                        <option value="golf">golf</option>
+                                                        <option value="squash">squash</option>
+                                                </optgroup>
+                                                <optgroup label="Culture">
+                                                        <option value="history">storia</option>
+                                                        <option value="languages">lingue</option>
+                                                        <option value="science">scienza</option>
+                                                </optgroup>
+                                                <optgroup label="Music">
+                                                        <option value="rock">rock</option>
+                                                        <option value="classic">classica</option>
+                                                        <option value="tango">tango</option>
+                                                </optgroup>
+                                        </select>
+                                </label>
+                                <label for="allergy">soffro di allergie</label>
+                                <input type="checkbox" id="allergy" name="allergy" class="yes-specified"
+                                        title="Selezionare se si soffre di allergia">
+                                <label for="allergy-spec" title="Se si soffre di allergia, pregasi specificare quale">
+                                        <input type="text" id="allergy-spec" name="allergy-spec" maxlength="60">
+                                </label>
+                        </fieldset>
+                </div>
+                <label for="privacy" title="Pregasi accettare il trattamento dei dati">consento al trattamento dati
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                </label>
+                <button type="submit">Prenota!</button>
+
+        </form>
+        <footer class="flex">
+                <p><a href="../index.html">back to home page</a></p>
+                <p><b>&copy;</b> 2020. No rights reserved.</p>
+        </footer>
+</body>
+
+</html>

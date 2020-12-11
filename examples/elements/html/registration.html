@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Registrazione</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Esempio di form per registrazione">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/registration.css">
+    <script src="../js/core.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="hideshow">
+    <label for="hideshow">hide hint</label>
+    <label for="hideshow">show hint</label>
+    <h1>The form is at its best with a window 300px wide, like the screen of a small smartphone</h1>
+    <form action="register.php">
+        <fieldset>
+            <legend>Dati di login</legend>
+            <label for="username">username</label>
+            <input type="text" id="username" name="username" placeholder="ad es. utente" required>
+            <label for="password">password</label>
+            <input type="password" id="password" name="password" placeholder="ad es. x8et7%62_____0" required>
+            <label for="conferma">conferma</label>
+            <input type="password" id="conferma" name="conferma" placeholder="ad es. x8et7%62_____0" required>
+        </fieldset>
+        <fieldset>
+            <label for="email">email</label>
+            <input type="email" id="email" name="email" placeholder="ad es. utente@dominio.com" required>
+        </fieldset>
+        <fieldset>
+            <legend>Preferenze newsletter</legend>
+            <!--
+            <label for="news">news</label>
+            <input type="checkbox" id="news" name="news">
+            -->
+            <label for="mai">mai</label>
+            <input type="radio" id="mai" name="news" value="mai">
+            <label for="week">week</label>
+            <input type="radio" id="week" name="news" value="week">
+            <label for="month">month</label>
+            <input type="radio" id="month" name="news" value="month">
+        </fieldset>
+        <button type="submit">Registra!</button>
+
+    </form>
+    <footer class="flex">
+        <p><a href="../index.html">back to home page</a></p>
+        <p><b>&copy;</b> 2020. No rights reserved.</p>
+    </footer>
+</body>
+
+</html>

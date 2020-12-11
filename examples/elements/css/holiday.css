@@ -1,0 +1,81 @@
+/* holiday form style */
+
+footer {
+    margin-top: 10px;
+    background-color: aqua;
+    opacity: 1;
+    border-top: 2px solid black;
+    position: sticky;
+    bottom: 0%;
+}
+
+/* flex container */
+
+.flex {
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* form alignment */
+
+form fieldset {
+    vertical-align: top;
+}
+
+/* form header */
+
+form h1 {
+    color: blue;
+    text-decoration: wavy;
+}
+
+/* form instructions */
+
+form>details {
+    font-size: 120%;
+    border-left: 2px solid green;
+}
+
+form>details[open] {
+    font-size: 100%;
+}
+
+/* separate lines for lable and inputs, except radio and checkbox */
+
+label>select, label>textarea, label>input:not([type="radio"]):not([type="checkbox"]) {
+    display: block;
+    clear: both;
+    text-align: start;
+}
+
+/* red flag for required inputs */
+
+input[required] {
+    padding-left: 1.5em;
+    background-image: url("../images/o.png");
+    background-clip: padding-box;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* fieldset trimme to content */
+
+fieldset {
+    display: inline-block;
+}
+
+/* hide specification if not needed */
+
+.yes-specified+label {
+    display: none;
+}
+
+/* show specification if needed */
+
+.yes-specified:checked+label {
+    display: inline-block;
+    border-bottom: 2px solid green;
+}
