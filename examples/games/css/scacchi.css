@@ -2,8 +2,8 @@
 
 .scacchiera td {
     /* Basic checkboard styling all cells */
-    width: 45px;
-    height: 45px;
+    width: 49px;
+    height: 49px;
     background-color: #404040;
     border: 2px solid #404040;
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Dialogs</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Dialogs">
+    <!-- remember to disable refreshing -->
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/core.js"></script>
+    <script>
+        // in Firefox dialog is not enabled by default
+        // go to about:config and enable dom.dialog_element.enabled
+        function setup() {
+            const d = document.getElementById("dlg")
+            console.log(d)
+            const btnClose = document.getElementById("btnClose")
+            const btnOpen = document.getElementById("btnOpen")
+            const btnOpenModal = document.getElementById("btnOpenModal")
+            btnOpen.addEventListener("click", () => { d.show() })
+            btnOpenModal.addEventListener("click", () => { d.showModal() })
+            btnClose.addEventListener("click", () => { d.close() })
+        }
+
+    </script>
+</head>
+
+<body onload="setup()">
+
+    <button id="btnOpenModal">Open Modal</button>
+    <button id="btnOpen">Open</button>
+
+    <dialog id="dlg">
+        <fieldset style="text-align: end">
+            <legend>Change your password</legend>
+            <p><label>Old password:<input type="password"></label></p>
+            <p><label>New password:<input type="password"></label></p>
+            <p><label>Confirm password:<input type="password"></label></p>
+        </fieldset>
+        <button id="btnChange">Change</button>
+        <button id="btnClose">Close</button>
+    </dialog>
+    <hr>
+    <a href="../index.html"> back to home page </a>
+
+</body>
+
+</html>

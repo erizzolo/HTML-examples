@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Parole o frasi palindrome</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Palindromi">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/palindromo.js"></script>
+</head>
+
+<body onload="setup()">
+    <h1>Test di palindromicità</h1>
+    <details>
+        <summary>
+            Il palindromo (dal greco antico πάλιν "di nuovo" e δρóμος "percorso", col significato "che può essere
+            percorso in entrambi i sensi") è una sequenza di caratteri che, letta al contrario, rimane invariata.
+        </summary>
+        Per esempio, in italiano: "Ai lati d'Italia". Il concetto è principalmente riferito a parole, frasi e numeri.
+        Secondo una leggenda l'inventore e il primo virtuoso del genere sarebbe stato il poeta greco Sotade, vissuto ad
+        Alessandria d'Egitto nel III secolo.
+    </details>
+    <h2>Test per singola parola</h2>
+    <label for="parola">Parola:
+        <input id="parola" name="parola" type="text" maxlength="20" value="">
+    </label>
+    <p id="checkParola"></p>
+    <h2>Test per frase</h2>
+    <label for="frase">Frase:
+        <input id="frase" name="frase" type="text" maxlength="200" value="Ai lati d'Italia">
+    </label>
+    <p id="checkFrase"></p>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

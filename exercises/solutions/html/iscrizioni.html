@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Tabella iscrizioni</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Tabella iscrizioni">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/core.js"></script>
+    <style>
+        td,
+        th {
+            border: 1px inset black;
+        }
+
+        th {
+            background-color: yellow;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body onload="setup()">
+    <h1>Here you are...</h1>
+    <table>
+        <caption>Tabella 11: la tabella 2 resa completamente accessibile</caption>
+        <thead>
+            <tr>
+                <th rowspan="2" colspan="2">Iscritti</th>
+                <th colspan="3">maschi</th>
+                <th colspan="3">femmine</th>
+            </tr>
+            <tr>
+                <th onclick="mostra(this)">matricole</th>
+                <th onclick="mostra(this)">complessivi</th>
+                <th>fuori corso</th>
+                <th>matricole</th>
+                <th>complessivi</th>
+                <th>fuori corso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="2">2001</th>
+                <th>Informatica</th>
+                <td>110</td>
+                <td>112</td>
+                <td>440</td>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+            </tr>
+            <tr>
+                <th>Matematica</th>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+            </tr>
+            <tr>
+                <th rowspan="2">2001</th>
+                <th>Informatica</th>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+            </tr>
+            <tr>
+                <th>Matematica</th>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+                <td>330</td>
+                <td>112</td>
+                <td>440</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

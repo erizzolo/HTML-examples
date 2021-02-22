@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Numeri "pseudo" casuali</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Numeri casuali">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/casuali.js"></script>
+</head>
+
+<body onload="setup()">
+    <h1>Generazione di numeri casuali</h1>
+    <h2>Intero casuale in intervallo [minimo, massimo] (estremi inclusi)</h2>
+    <label for="minimo">Minimo:
+        <input id="minimo" name="minimo" type="number" min="0" max="100" value="0">
+    </label>
+    <label for="massimo">Massimo:
+        <input id="massimo" name="massimo" type="number" min="50" max="1000" value="50">
+    </label>
+    <button id="genera">Genera</button>
+    <p>Numero casuale: <span id="risultato">Nulla per ora</span></p>
+    <h2>Array di interi casuali in intervallo [minimo, massimo] (estremi inclusi)</h2>
+    <label for="elementi">Numero di elementi:
+        <input id="elementi" name="elementi" type="number" min="0" max="100" value="5">
+    </label>
+    <button id="vettore">Genera array</button>
+    <p>Array casuale: <span id="vettore-risultato">Nulla per ora</span></p>
+    <h2>Array multidimensionali di interi casuali in intervallo [minimo, massimo] (estremi inclusi)</h2>
+    <label for="dimensioni">Numero di dimensioni:
+        <input id="dimensioni" name="dimensioni" type="number" min="1" max="10" value="5">
+    </label>
+    <label for="dimensione">Dimensione:
+        <input id="dimensione" name="dimensione" type="number" min="2" max="10" value="3">
+    </label>
+    <button id="matrice">Genera array multidimensionale</button>
+    <p>Array multidimensionale: <span id="vettore-multi">Nulla per ora</span></p>
+    <h2>Lancio di dai a 6 facce</h2>
+    <label for="lanci">Numero di lanci:
+        <input id="lanci" name="lanci" type="number" min="1" max="10000" value="500">
+    </label>
+    <label for="dadi">Numero di dadi:
+        <input id="dadi" name="dadi" type="number" min="1" max="10" value="2">
+    </label>
+    <button id="lancia">Simula lanci</button>
+    <p>Statistica: <span id="statistica">Nulla per ora</span></p>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

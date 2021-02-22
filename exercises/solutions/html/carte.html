@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Gioco di carte</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Numeri casuali">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/carte.js"></script>
+</head>
+
+<body onload="setup()">
+    <h1>Mescolamento mazzo di carte</h1>
+    <h2>Dati del mazzo</h2>
+    <label for="semi">semi:
+        <input id="semi" name="semi" type="number" min="1" max="10" value="4">
+    </label>
+    <label for="valori">valori:
+        <input id="valori" name="valori" type="number" min="1" max="100" value="10">
+    </label>
+    <button id="genera">Genera</button>
+    <p>Mazzo: <span id="mazzo">Nulla per ora</span></p>
+    <button id="mescola">Mescola</button>
+    <p>Mazzo: <span id="mescolato">Nulla per ora</span></p>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
