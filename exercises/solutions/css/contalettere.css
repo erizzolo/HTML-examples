@@ -1,0 +1,13 @@
+/* core style */
+
+td, th {
+    border: 1px solid black;
+}
+
+label {
+    display: block;
+}
+
+button#conta.hidden {
+    visibility: hidden;
+}
