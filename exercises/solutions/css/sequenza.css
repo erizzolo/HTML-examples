@@ -1,0 +1,29 @@
+/* core style */
+
+table td {
+    width: 30px;
+    height: 30px;
+    font-size: 15 px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#keyboard td {
+    border: 1px solid black;
+    background-color: white;
+    transition: background-color 0s linear 0.2s;
+}
+
+#keyboard td.clicked {
+    background-color: green;
+}
+
+#sequence td {
+    border: 1px solid blue;
+    background-color: aqua;
+}
+
+#reversed td {
+    border: 1px solid blue;
+    background-color: yellow;
+}

@@ -1,0 +1,26 @@
+/* core style */
+span.tasto {
+    display: block;
+    border: 1px solid black;
+    padding: 0;
+    width: 20%;
+    height: auto;
+    font-size: 30px;
+    text-align: center;
+    background-color: aqua;
+    float: left;
+}
+
+body > span:nth-of-type(4n+1)
+{
+    clear:left;
+}
+
+a {
+    display: block;
+    clear: left;
+}
+
+span.cliccato {
+    background-color: green;
+}

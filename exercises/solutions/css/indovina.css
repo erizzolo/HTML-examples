@@ -1,0 +1,17 @@
+/* core style */
+
+table {
+    border-collapse: collapse;
+}
+table td {
+    border: 1px solid black;
+    width: 30px;
+    height: 20px;
+    font-size: 15 px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: aqua;
+}
+td.cliccato {
+    background-color: green;
+}

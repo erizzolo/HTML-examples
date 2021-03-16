@@ -40,6 +40,7 @@ function nextLetter(letter) {
 
 function setAuto() {
     conta.classList.toggle('hidden')
+    autoCheck()
 }
 
 function autoCheck() {
