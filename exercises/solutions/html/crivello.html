@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Crivello di Eratostene</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Crivello di Eratostene">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/crivello.css">
+    <script src="../js/crivello.js"></script>
+</head>
+
+<body>
+    <h1>Numeri primi tramite Crivello di Eratostene</h1>
+    <h2>Numeri primi nell'intervallo [2, massimo]</h2>
+    <label>Massimo:
+        <input id="massimo" name="massimo" type="number" min="2" max="100000000" value="100" required>
+    </label>
+    <label>Colonne tabella (e.g. 2, 6, 30, 210, ...):
+        <input id="colonne" name="colonne" type="number" min="2" max="100000000" value="30" required>
+    </label>
+    <label>Ritardo animazione (in ms):
+        <input id="ritardo" name="ritardo" type="number" min="0" max="1000" value="100" required>
+    </label>
+    <button id="genera">Genera</button>
+    <p id="report">
+        Nothing generated so far
+    </p>
+    <p id="output">
+        The list of numbers will be shown here
+    </p>
+    <table id="table"></table>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

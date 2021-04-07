@@ -69,7 +69,9 @@ function fillNews(page) {
     if (e != null) {
         let base = `${page == 'index' ? 'html/' : ''}news`
         fetch(base + '.txt')
-            .then(response => e.innerHTML = response.text())
+            .then(response => { if (response.ok) return response; throw Error('?') })
+            .then(response => response.text())
+            .then(text => e.innerHTML = text)
             .catch(error => e.innerHTML = `<iframe src="${base + '.html'}"></iframe>`)
     } else {
         console.log("no site-news element for page " + page)

@@ -1,0 +1,16 @@
+td {
+    text-align: end;
+}
+
+.primo {
+    background-color: red;
+}
+
+.multiplo {
+    background-color: gold;
+    transition: background-color 2s linear 0s;
+}
+
+label {
+    display: block;
+}

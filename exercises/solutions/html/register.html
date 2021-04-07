@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Registrazione</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Esempio di form per registrazione">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/core.js"></script>
+    <script src="../js/register.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="hideshow">
+    <label for="hideshow">hide hint</label>
+    <label for="hideshow">show hint</label>
+    <h1>The form is at its best with a window 300px wide, like the screen of a small smartphone</h1>
+    <form action="register.html">
+        <!--  username=sdk&password=sss&conferma=sss&email=a%40b.com&accept=on -->
+        <fieldset>
+            <legend>Dati di login</legend>
+            <label for="username">username
+                <input type="text" id="username" name="username" placeholder="ad es. utente" required>
+            </label>
+            <label for="password">password
+                <input type="password" id="password" name="password" placeholder="ad es. x8et7%62_____0" required>
+            </label>
+            <label for="conferma">conferma
+                <input type="password" id="conferma" name="conferma" placeholder="ad es. x8et7%62_____0" required>
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="email">email
+                <input type="email" id="email" name="email" placeholder="ad es. utente@dominio.com" required>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Conferma ed accettazione</legend>
+            <label for="accept">
+                <input type="checkbox" id="accept" name="accept">
+                Confermo di accettare le <a href="condizioni.pdf" target="_blank">condizioni di utilizzo</a>
+            </label>
+        </fieldset>
+        <button type="submit" disabled>Registra!</button>
+
+    </form>
+    <footer class="flex">
+        <p><a href="../index.html">back to home page</a></p>
+        <p><b>&copy;</b> 2020. No rights reserved.</p>
+    </footer>
+</body>
+
+</html>

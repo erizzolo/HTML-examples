@@ -4,18 +4,16 @@
 
 * {
     /* border colour */
-    --colour: aqua;
+    --colour: black;
     /* form preferred width */
     --form-width: 300px;
-    /* hover colour */
-    --hover-colour: var(--sfondo);
 }
 
 /* a sticky footer */
 
 footer {
     margin-top: 10px;
-    background-color: var(--sfondo);
+    background-color: aqua;
     opacity: 1;
     border-top: 2px solid var(--colour);
     position: sticky;
@@ -60,8 +58,4 @@ input[required] {
     background-position: 0%;
     background-repeat: no-repeat;
     background-size: 0.5em;
-}
-
-button:hover {
-    background-color: var(--hover-colour);
 }

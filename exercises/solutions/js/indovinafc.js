@@ -9,8 +9,10 @@ let effettuati = 0
 
 function setup() {
     // alert('DOMContentLoaded')
-    const tb = document.querySelector('table > tbody')
-    tb.addEventListener('click', inserisci, false)
+    const tb = document.querySelectorAll('span.tasto')
+    for (let index = 0; index < tb.length; index++) {
+        tb[index].addEventListener('click', inserisci, false)
+    }
     restart()
 }
 

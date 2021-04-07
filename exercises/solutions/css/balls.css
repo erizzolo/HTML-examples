@@ -1,0 +1,15 @@
+/* core style */
+
+label {
+    display: block;
+}
+
+#area {
+    width: 90%;
+    height: 500px;
+    position: relative;
+}
+
+.ball {
+    position: absolute;
+}
