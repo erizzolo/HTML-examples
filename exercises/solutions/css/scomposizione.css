@@ -1,0 +1,21 @@
+td {
+    text-align: end;
+    border: 1px solid black;
+}
+
+tr td {
+    background-color: green;
+}
+
+tr:first-child td {
+    background-color: red;
+}
+
+label {
+    display: block;
+}
+
+.esponente {
+    position: relative;
+    top: -0.5em;
+}
