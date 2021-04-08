@@ -12,7 +12,8 @@ function setup() {
 function scomponi() {
     const number = getInput('numero', 0)    // 0 is invalid!
     if (number != 0) {
-        const factors = doIt(number)
+        // const factors = doIt(number)
+        const factors = doItWithSieve(number)
         // check
         let prodotto = 1
         for (let index = 0; index < factors.length; index++) {
@@ -133,10 +134,61 @@ function doIt(numero) {
                 result.push([fattore, esponente])
             }
         }
+        if (numero > 1) {
+            // last factor, numero is now a prime
+            result.push([numero, 1])
+        }
     }
-    if (numero > 1) {
-        // last factor, numero is now a prime
-        result.push([numero, 1])
+    return result
+}
+
+/**
+ * Effettiva scomposizione in fattori, con crivello di Eratostene
+ * @param {*} numero il numero da scomporre
+ * @returns un array contenente le coppie [fattore, esponente]
+ */
+function doItWithSieve(numero) {
+    const result = []   // no factors so far
+    if (numero > 1) {   // no decomposition for 0, 1
+        const primes = []   // the primes
+        const maxPrime = Math.floor(Math.sqrt(numero))
+        primes.length = maxPrime + 1
+        // inizializza primes[i] = undefined per i = 0..maxPrime
+        // check powers of 2
+        let esponente = 0
+        while ((numero % 2) == 0) {
+            numero /= 2
+            ++esponente
+        }
+        if (esponente > 0) {
+            result.push([2, esponente])
+        }
+        // start with factor 3, then prime factors up to square root of numero
+        for (let fattore = 3; fattore * fattore <= numero; fattore += 2) {
+            if (primes[fattore] == undefined) {
+                // fattore is a prime
+                let esponente = 0
+                while ((numero % fattore) == 0) {
+                    // found a factor: get rid of it and increment the exponent
+                    numero /= fattore
+                    ++esponente
+                }
+                if (esponente > 0) {
+                    // only real factors
+                    result.push([fattore, esponente])
+                }
+                // mark multiples starting from fattore squared
+                let multiplo = fattore * fattore, doppio = fattore + fattore
+                while (multiplo <= maxPrime) {
+                    primes[multiplo] = false
+                    multiplo += doppio
+                }
+            }
+        }
+        if (numero > 1) {
+            // last factor, numero is now a prime
+            result.push([numero, 1])
+        }
     }
     return result
 }
