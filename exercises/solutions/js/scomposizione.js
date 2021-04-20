@@ -1,6 +1,11 @@
 // usual way to get a function called after document loading
 window.addEventListener('DOMContentLoaded', setup, false)
 
+// Note that % operator works on 32 bits only !!!
+// x = (1 << 30) * 567389876 + 1
+// x is 609230240375373800 but it should be odd !!!
+// x % 567389876 yields 0 instead of 1
+
 /**
  * Sets up event, global variables, ...
  */
@@ -151,7 +156,8 @@ function doItWithSieve(numero) {
     const result = []   // no factors so far
     if (numero > 1) {   // no decomposition for 0, 1
         const primes = []   // the primes
-        const maxPrime = Math.floor(Math.sqrt(numero))
+        // max useful prime
+        let maxPrime = Math.floor(Math.sqrt(numero))
         primes.length = maxPrime + 1
         // inizializza primes[i] = undefined per i = 0..maxPrime
         // check powers of 2
@@ -164,7 +170,8 @@ function doItWithSieve(numero) {
             result.push([2, esponente])
         }
         // start with factor 3, then prime factors up to square root of numero
-        for (let fattore = 3; fattore * fattore <= numero; fattore += 2) {
+        // for (let fattore = 3; fattore * fattore <= numero; fattore += 2) {
+        for (let fattore = 3; fattore <= maxPrime; fattore += 2) {
             if (primes[fattore] == undefined) {
                 // fattore is a prime
                 let esponente = 0
@@ -176,8 +183,10 @@ function doItWithSieve(numero) {
                 if (esponente > 0) {
                     // only real factors
                     result.push([fattore, esponente])
+                    // update max useful prime
+                    maxPrime = Math.floor(Math.sqrt(numero))
                 }
-                // mark multiples starting from fattore squared
+                // mark odd multiples starting from fattore squared
                 let multiplo = fattore * fattore, doppio = fattore + fattore
                 while (multiplo <= maxPrime) {
                     primes[multiplo] = false

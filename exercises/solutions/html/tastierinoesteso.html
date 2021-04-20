@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Tastierino numerico</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Tastierino numerico">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/tastierinoesteso.css">
+    <script src="../js/tastierinoesteso.js"></script>
+</head>
+
+<body>
+    <h1>Tastierino numerico</h1>
+    <details>
+        <summary>Istruzioni</summary>
+        Inserimento numeri tramite "tasti" grafici oppure tastiera reale.
+    </details>
+    <p id="result">
+        0
+    </p>
+    <table id="tastierino">
+        <tbody>
+            <tr>
+                <td>F</td>
+                <td>E</td>
+                <td>D</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>A</td>
+                <td>9</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>6</td>
+                <td>5</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>C</td>
+                <td>.</td>
+                <td>AC</td>
+                <th>
+                    <label> <select id="base">
+                            <option value="2" selected>2</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="16">16</option>
+                        </select></label>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <table id="history"></table>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

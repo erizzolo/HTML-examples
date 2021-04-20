@@ -1,0 +1,11 @@
+#tastierino {
+    border-collapse: separate;
+    text-align: center;
+}
+
+#tastierino tbody td {
+    width: 4em;
+    height: 2em;
+    border: 1px solid black;
+    background-color: aqua;
+}

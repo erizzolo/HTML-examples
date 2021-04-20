@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Array ordinato con numeri "pseudo" casuali</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Numeri casuali">
+    <link rel="stylesheet" href="../css/core.css">
+    <script src="../js/ordinato.js"></script>
+</head>
+
+<body>
+    <h1>Esercizi</h1>
+    <h2>Esercizio 1/2/3</h2>
+    <h3>Dato il numero di elementi n, il valore minimo min e quello massimo max,
+        generare e visualizzare un array di n elementi con valori interi compresi
+        nell’intervallo [min, max] disposti in ordine crescente.</h3>
+    <label>Numero di elementi:<input id="length" name="length" type="number" min="1" max="100" value="5"></label>
+    <label>Minimo:<input id="minimo" name="minimo" type="number" min="0" max="100" value="0"></label>
+    <label>Massimo:<input id="massimo" name="massimo" type="number" min="50" max="1000" value="50"></label>
+    <label><input id="duplicati" name="duplicati" type="checkbox" checked>ammetti duplicati</label>
+    <fieldset>
+        <legend>Metodo</legend>
+        <label><input name="metodo" type="radio" value="1" checked>array ausiliario</label>
+        <label><input name="metodo" type="radio" value="2">controllo valore generato</label>
+        <label><input name="metodo" type="radio" value="3">generazione incremento</label>
+        <label><input name="metodo" type="radio" value="4">variazione intervallo</label>
+        <label><input name="metodo" type="radio" value="5">ordinamento</label>
+    </fieldset>
+    <button id="genera">Genera</button>
+    <p>Array casuale: <span id="risultato">Nulla per ora</span></p>
+    <h2>Esercizio 4/5</h2>
+    <h3>Dato un array a ordinato di n elementi ed un valore obiettivo target
+        determinare, se esiste, una coppia (terna) di elementi dell’array la cui somma sia target.</h3>
+    <label>Numero di elementi:<input id="target" name="target" type="number" min="1" max="2000" value="55"></label>
+    <button id="ricerca">Ricerca</button>
+    <p>Coppia con somma target: <span id="coppia">Nulla per ora</span></p>
+    <p>Terna con somma target: <span id="terna">Nulla per ora</span></p>
+
+    <h2>Esercizio 6</h2>
+    <h3>Dato un array a di n elementi, il valore minimo min e quello massimo max,
+        generare e visualizzare l’array c che contenga i valori interi compresi
+        nell’intervallo [min, max] non presenti in a.</h3>
+    <fieldset>
+        <legend>Metodo</legend>
+        <label><input name="complemento" type="radio" value="1" checked>array ausiliario</label>
+        <label><input name="complemento" type="radio" value="2">ricerca sequenziale</label>
+        <label><input name="complemento" type="radio" value="3">ricerca dicotomica</label>
+        <label><input name="complemento" type="radio" value="4">rimozione elementi</label>
+    </fieldset>
+    <p>Array complementare: <span id="complementare">Nulla per ora</span></p>
+
+    <h2>Esercizio 7/8</h2>
+    <h3>Dato un array a di n elementi, determinare e visualizzare l’array c che contenga
+        le somme cumulative (i prodotti cumulativi) degli elementi di a.</h3>
+    <p>Somme cumulative: <span id="cumsum">Nulla per ora</span></p>
+    <p>Prodotti cumulativi: <span id="cumprod">Nulla per ora</span></p>
+
+    <h2>Esercizio 9</h2>
+    <h3>Dato un array a di n elementi, il valore minimo min e quello massimo max,
+        generare e visualizzare l’array f (di max – min + 1 elementi) che contenga il
+        numero di occorrenze dei valori interi compresi nell’intervallo [min, max]
+        nell’array a.</h3>
+    <p>Frequenze: <span id="frequencies">Nulla per ora</span></p>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>
