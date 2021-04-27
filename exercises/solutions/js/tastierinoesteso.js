@@ -6,7 +6,7 @@ function debug(what) {
 }
 
 const DIGITS = '0123456789ABCDEF'
-let radix = 10
+let radix = 10  // remember previous radix
 
 /**
  * Sets up event, global variables, ...
@@ -14,17 +14,21 @@ let radix = 10
 function setup() {
     const keys = document.querySelector('#tastierino tbody')
     keys.addEventListener('click', press, false)
+
     const controls = document.querySelectorAll('#tastierino tfoot td')
     for (let index = 0; index < controls.length; index++) {
         controls[index].addEventListener('click', press, false)
     }
+
     const baseSelector = document.getElementById('base')
     baseSelector.addEventListener('change', baseChange, false)
+
+    window.addEventListener('keydown', digita, false)
+
     baseChange(null)
     clearHistory()
-    show('0')
+    show(0)
     addHistory('nothing', display())
-    window.addEventListener('keydown', digita, false)
 }
 
 function baseChange(evento) {
