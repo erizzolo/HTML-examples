@@ -118,7 +118,8 @@ function getArray(length, minimo, massimo, duplicati, metodo) {
                     a[e] = casuale(minimo, massimo)
                 }
                 debug(`generated random array a = ${a}`)
-                a.sort((a, b) => a - b)
+                // a.sort((a, b) => a - b)
+                a.sort(confronto)
                 debug(`sorted random array a = ${a}`)
                 break
             default:
@@ -193,7 +194,7 @@ function getArray(length, minimo, massimo, duplicati, metodo) {
  * @returns < 0, 0, > 0 a seconda che a < b, a == b, a > b
  */
 function confronto(a, b) {
-    return a - b
+    return a < b ? -1 : (a > b ? +1 : 0)
 }
 
 function casuale(minimo, massimo) {
@@ -201,7 +202,6 @@ function casuale(minimo, massimo) {
 }
 
 function ricerca() {
-    let target = getNumber('target', 55)
     let a = Array.from(document.getElementById('risultato').innerHTML.split(','))
     for (let index = 0; index < a.length; index++) {
         a[index] = Number(a[index])
@@ -210,6 +210,7 @@ function ricerca() {
         document.getElementById('coppia').innerHTML = 'Seems that there is no array to search'
         document.getElementById('terna').innerHTML = 'Seems that there is no array to search'
     } else {
+        let target = getNumber('target', 55)
         let result
         let found = findCouple(a, target)
         if (found == null) {
@@ -221,8 +222,7 @@ function ricerca() {
         if (a.length < 3) {
             document.getElementById('terna').innerHTML = 'Seems that there is no array to search'
         } else {
-            let result
-            let found = findTriplet(a, target)
+            found = findTriplet(a, target)
             if (found == null) {
                 result = 'Sorry, no suitable triplet found'
             } else {
@@ -248,9 +248,9 @@ function findCouple(a, target, begin = 0, end = a.length) {
     let left = lowerBound(a, target - a[end - 1], begin, end) // indice minimo
     if (left < end - 1) {
         // let right = end - 1    // indice massimo
-        let right = upperBound(a, target - a[left] + 1, left + 1, end)    // indice massimo
+        let right = upperBound(a, target - a[left], left + 1, end) - 1  // indice massimo
         let comparison  // risultato confronto
-        debug(`search sum of ${target} in [${left}, ${right}]`)
+        debug(`search couple with sum ${target} in [${left}, ${right}]`)
         while (comparison != 0 && left < right) {
             comparison = a[left] + a[right] - target
             debug(`a[${left}]+ a[${right}] = ${a[left]} + ${a[right]} = ${a[left] + a[right]} `)
