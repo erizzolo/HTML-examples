@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Tris</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Tris">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/tris.css">
+    <script src="../js/core.js"></script>
+    <script src="../js/tris_gui.js"></script>
+    <script src="../js/tris_model.js"></script>
+</head>
+
+<body onload="fillCommon('tris')">
+    <header id="site-header"></header>
+    <nav id="site-nav"></nav>
+    <main>
+        <h1>Tris</h1>
+        <div id="controls">
+            <menu>
+                <li>
+                    <details open>
+                        <summary>Istruzioni</summary>
+                        <fieldset>
+                            <legend>Modalità di input</legend>
+                            <p>Le celle sono numerate da 1 a 9,<br>dall'alto in basso e da sinistra a destra.</p>
+                            <table>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                            </table>
+                            <p>Per effettuare una mossa:</p>
+                            <ol>
+                                <li>cliccare col pulsante sinistro su una cella</li>
+                                <li>premere sulla tastiera la cifra corrispondente</li>
+                                <li>spostare la selezione con i tasti freccia e
+                                    <ul>
+                                        <li>confermare con la barra spaziatrice</li>
+                                        <li>confermare con il tasto invio</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </details>
+                </li>
+                <li>
+                    <details open>
+                        <summary>Players</summary>
+                        <fieldset>
+                            <legend>Options</legend>
+                            <label><input type="radio" name="players" value="0" checked>two human players</label>
+                            <label><input type="radio" name="players" value="1">one human player</label>
+                            <label><input type="radio" name="players" value="2">no human player</label>
+                        </fieldset>
+                    </details>
+                </li>
+                <li>
+                    <details open>
+                        <summary>AI algorithm</summary>
+                        <fieldset>
+                            <legend>AI level</legend>
+                            <label><input type="radio" name="level" value="random" checked>random</label>
+                            <label><input type="radio" name="level" value="one-ahead">one move ahead</label>
+                            <label><input type="radio" name="level" value="perfect">perfect</label>
+                            <label><input type="range" name="delay" id="delay" value="200" min="0"
+                                    max="2000">delay</label>
+                        </fieldset>
+                    </details>
+                </li>
+                <li>
+                    <details open>
+                        <summary>Game</summary>
+                        <fieldset>
+                            <legend>Options</legend>
+                            <label><input type="checkbox" id="auto" checked>Automatic restart</label>
+                        </fieldset>
+                    </details>
+                </li>
+                <li><button id="genera">Nuovo gioco</button></li>
+                <li><button id="save">Salva</button></li>
+                <li><button id="load">Carica</button></li>
+            </menu>
+            <p id="timers">
+                <img src="../images/x.png" alt="cross symbol">
+                <span id="timerX">00:00</span>
+                <img src="../images/o.png" alt="cross symbol">
+                <span id="timerO">00:00</span>
+                Statistics: <span id="stats">No stats so far</span>
+            </p>
+            <p id="info">New game</p>
+        </div>
+        <div id="tris" tabindex="-1">
+            <div id="1"></div>
+            <div id="2"></div>
+            <div id="3"></div>
+            <div id="4"></div>
+            <div id="5"></div>
+            <div id="6"></div>
+            <div id="7"></div>
+            <div id="8"></div>
+            <div id="9"></div>
+        </div>
+    </main>
+    <aside id="site-news"></aside>
+    <footer id="site-footer"></footer>
+</body>
+
+</html>

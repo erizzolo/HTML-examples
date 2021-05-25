@@ -99,3 +99,65 @@ function fillFooter(page) {
     }
 }
 
+// useful functions -----------------------------------------------------------
+/**
+ * Return the value of the cookie with the given name or default value
+ * @param {*} name name of the cookie
+ * @param {*} defaultValue value to return if cookie not found (defaults to null)
+ * @returns the value of the cookie with the given name or default value
+ */
+function getCookieValue(name, defaultValue = null) {
+    let cookies = document.cookie.split('; ')
+    for (let c = 0; c < cookies.length; ++c) {
+        if (cookies[c].startsWith(name + '=')) {
+            return cookies[c].substring(name.length + 1)
+        }
+    }
+    return defaultValue
+}
+
+/**
+ * Returns an array of the given length filled with values starting at start
+ * and incremented by delta
+ * @param {*} length the length of the returned array
+ * @param {*} start the value at index 0, defaults to 0
+ * @param {*} delta the incremenet between successive values, defaults to 1
+ * @returns an array of the given length filled with successive values starting at start
+ */
+function iota(length, start = 0, delta = 1) {
+    const result = []
+    for (let index = 0; index < length; ++index, start += delta) {
+        result[index] = start
+    }
+    return result
+}
+
+
+/**
+ * Return the selected value of the input(s) with the given name or default value
+ * @param {*} name name of the input(s)
+ * @param {*} value default value if none selected (defaults to null)
+ * @returns the selected value of the input(s) with the given name or default value
+ */
+function getRadioValue(name, value = null) {
+    const e = document.querySelector('input[name="' + name + '"]:checked')
+    return e == null ? value : e.value
+}
+
+/**
+ * Return whether the input with the given id is checked or not
+ * @param {*} id id of the input(s)
+ * @returns true if the input with the given id is checked, false otherwise
+ */
+function isChecked(id) {
+    const e = document.getElementById(id)
+    return e == null ? false : e.checked
+}
+
+/**
+ * Just a console.log that can be disabled everywhere
+ * @param {*} what 
+ */
+function debug(what) {
+    console.log(what)
+}

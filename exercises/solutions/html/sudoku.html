@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Sudoku</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Sudoku">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/sudoku.css">
+    <script src="../js/sudoku.js"></script>
+</head>
+
+<body>
+    <h1>Sudoku</h1>
+    <button id="genera">Nuovo gioco</button>
+    <button id="risolvi">Risolvi</button>
+    <button id="mostra">Mostra soluzione</button>
+    <button id="reimposta">Reimposta</button>
+    <button id="esporta">Esporta</button>
+    <p id="timer"></p>
+    <menu>
+        <li>
+            <details open>
+                <summary>Generation</summary>
+                <fieldset>
+                    <legend>Options</legend>
+                    <label><input type="radio" name="level" value="30" checked>easy</label>
+                    <label><input type="radio" name="level" value="40">medium</label>
+                    <label><input type="radio" name="level" value="50">hard</label>
+                    <label><input type="radio" name="level" value="60">very hard</label>
+                    <label><input type="radio" name="level" value="70">impossible</label>
+                    <label><input type="radio" name="level" value="0">Example 1</label>
+                    <label><input type="radio" name="level" value="1">Example 2</label>
+                </fieldset>
+            </details>
+        </li>
+        <li>
+            <details open>
+                <summary>Solution</summary>
+                <fieldset>
+                    <legend>Options</legend>
+                    <label><input type="checkbox" id="cells">check for single cells</label>
+                    <label><input type="checkbox" id="values">check for single values</label>
+                    <label><input type="checkbox" id="shuffle">shuffle empty cells</label>
+                    <label>
+                        <input type="range" name="delay" id="delay" value="200" min="0" max="1000">
+                        animation delay
+                    </label>
+                </fieldset>
+            </details>
+        </li>
+    </menu>
+    <p id="info">New game</p>
+    <table id="sudoku">
+        <caption>Sudoku</caption>
+        <tbody></tbody>
+    </table>
+
+    <a href="../index.html"> back to home page </a>
+</body>
+
+</html>

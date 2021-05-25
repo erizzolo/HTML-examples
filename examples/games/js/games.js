@@ -9,6 +9,7 @@ function fillNavbarForPage(page) {
         result += `<a href="logica.html">Logica</a>`
         result += `<a href="animazione.html">Animazione</a>`
         result += `<a href="scacchi.html">Scacchi</a>`
+        result += `<a href="tris.html">50 sfumature di tris</a>`
     } else {
         console.log("no site-nav element for page " + page)
     }
