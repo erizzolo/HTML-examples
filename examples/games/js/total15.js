@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', guiSetup, false)
 //  per l'utente: evitare 0 per il primo elemento ....
 // identificatore celle:
 //  un carattere in '123456789' dall'alto in basso, da sinistra a destra
-const OUTER_CELLS = Array.from('123456789')
+const OUTER_CELLS = Array.from('618753294')
 // contenuto celle (giocatore che l'ha marcata):
 //  un carattere in 'OX ' (player 1, 2, cella vuota)
 const OUTER_PLAYERS = Array.from('OX ')
@@ -27,7 +27,7 @@ const OUTER_PLAYERS = Array.from('OX ')
 // constants ------------------------------------------------------------------
 const EMPTY_BOARD = '         ' // the empty board
 const MOVE_KEYS = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']
-const DELTA = [-1, +1, -3, +3]  // movement amount for MOVE_KEYS
+const DELTA = [-1, +1, -1, +1]  // movement amount for MOVE_KEYS
 const ENTER_KEYS = [' ', 'Enter']   // keys to confirm selected cell move
 
 // globals --------------------------------------------------------------------
@@ -108,7 +108,7 @@ function guiSetup() {
  * @returns the element representing the given cell
  */
 function cellElement(cell) {
-    return document.querySelector('#tris div:nth-of-type(' + cell + ')')
+    return document.getElementById(cell)
 }
 
 /**

@@ -2,23 +2,23 @@
 <html lang="it">
 
 <head>
-    <title>Tris</title>
+    <title>Total 15</title>
     <meta charset="utf-8">
     <meta name="author" content="Emanuele Rizzolo">
-    <meta name="description" content="Tris">
+    <meta name="description" content="Total 15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/core.css">
-    <link rel="stylesheet" href="../css/tris.css">
+    <link rel="stylesheet" href="../css/total15.css">
     <script src="../js/core.js"></script>
-    <script src="../js/tris_gui.js"></script>
-    <script src="../js/tris_model_bits.js"></script>
+    <script src="../js/total15.js"></script>
+    <script src="../js/tris_model_array.js"></script>
 </head>
 
 <body onload="fillCommon('tris')">
     <header id="site-header"></header>
     <nav id="site-nav"></nav>
     <main>
-        <h1>Tris</h1>
+        <h1>Total 15 (or Tris ???)</h1>
         <div id="controls">
             <menu>
                 <li>
@@ -26,29 +26,14 @@
                         <summary>Istruzioni</summary>
                         <fieldset>
                             <legend>Modalità di input</legend>
-                            <p>Le celle sono numerate da 1 a 9,<br>dall'alto in basso e da sinistra a destra.</p>
-                            <table>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-                            </table>
+                            <p>Ogni giocatore, a turno, deve accaparrarsi dei numeri tali che la somma di tre di essi
+                                sia 15</p>
+                            <p>I numeri disponibili sono da 1 a 9</p>
                             <p>Per effettuare una mossa:</p>
                             <ol>
                                 <li>cliccare col pulsante sinistro su una cella</li>
                                 <li>premere sulla tastiera la cifra corrispondente</li>
-                                <li>spostare la selezione con i tasti freccia e
+                                <li>spostare la selezione con i tasti freccia e ??? oops
                                     <ul>
                                         <li>confermare con la barra spaziatrice</li>
                                         <li>confermare con il tasto invio</li>
@@ -96,24 +81,22 @@
                 <li><button id="load">Carica</button></li>
             </menu>
             <p id="timers">
-                <img src="../images/x.png" alt="cross symbol">
                 <span id="timerX">00:00</span>
-                <img src="../images/o.png" alt="cross symbol">
                 <span id="timerO">00:00</span>
                 Statistics: <span id="stats">No stats so far</span>
             </p>
             <p id="info">New game</p>
         </div>
         <div id="tris" tabindex="-1">
-            <div id="1"></div>
-            <div id="2"></div>
-            <div id="3"></div>
-            <div id="4"></div>
-            <div id="5"></div>
-            <div id="6"></div>
-            <div id="7"></div>
-            <div id="8"></div>
-            <div id="9"></div>
+            <div id="1">1</div>
+            <div id="2">2</div>
+            <div id="3">3</div>
+            <div id="4">4</div>
+            <div id="5">5</div>
+            <div id="6">6</div>
+            <div id="7">7</div>
+            <div id="8">8</div>
+            <div id="9">9</div>
         </div>
     </main>
     <aside id="site-news"></aside>

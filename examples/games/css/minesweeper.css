@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+fieldset {
+    width: max-content;
+    display: inline-block;
+}
+
+#minesweeper div {
+    background-image: url("../images/C.png");
+    background-size: cover;
+    float: left;
+}
+
+#minesweeper div.flagged {
+    background-image: url("../images/F.png");
+}
+
+#minesweeper div.c0 {
+    background-image: url("../images/0.png");
+}
+
+#minesweeper div.c1 {
+    background-image: url("../images/1.png");
+}
+
+#minesweeper div.c2 {
+    background-image: url("../images/2.png");
+}
+
+#minesweeper div.c3 {
+    background-image: url("../images/3.png");
+}
+
+#minesweeper div.c4 {
+    background-image: url("../images/4.png");
+}
+
+#minesweeper div.c5 {
+    background-image: url("../images/5.png");
+}
+
+#minesweeper div.c6 {
+    background-image: url("../images/6.png");
+}
+
+#minesweeper div.c7 {
+    background-image: url("../images/7.png");
+}
+
+#minesweeper div.c8 {
+    background-image: url("../images/8.png");
+}
+
+#minesweeper div.c9 {
+    background-image: url("../images/M.png");
+}
+
+#minesweeper div.cM {
+    background-image: url("../images/ball.png");
+}
+
+#minesweeper::after {
+    content: "";
+    display: table;
+    clear: both;
+}

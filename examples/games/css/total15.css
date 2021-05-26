@@ -1,0 +1,92 @@
+* {
+    --sfondo: white;
+    background-color: var(--sfondo);
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+}
+
+menu {
+    padding: 0px;
+}
+
+menu>li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+menu li details fieldset {
+    display: none;
+    background-color: var(--sfondo);
+}
+
+menu li details:hover fieldset, menu li details fieldset:hover {
+    width: max-content;
+    position: absolute;
+    display: block;
+    z-index: +1;
+}
+
+#tris div {
+    float: left;
+    border: 2px solid black;
+    background-image: url("../images/b.png");
+    background-size: cover;
+    width: 9vmin;
+    height: 9vmin;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 6vmin;
+}
+
+#tris div.cross {
+    border: 5px solid blue;
+    cursor: not-allowed;
+}
+
+#tris div.circle {
+    border: 5px solid red;
+    cursor: not-allowed;
+}
+
+#tris div.winning {
+    transform: rotate(180deg);
+    transition: transform 2s;
+}
+
+#tris div.current {
+    color: green;
+    font-size: 7vmin;
+}
+
+#tris div.circle.current, #tris div.cross.current {
+    color: brown;
+    font-size: 5vmin;
+}
+
+#tris div.losing {
+    opacity: 0.1;
+    transition: opacity 2s;
+}
+
+#tris::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#timers img {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+}
+
+#timers span#timerX.turno {
+    border: 2px solid blue;
+}
+
+#timers span#timerO.turno {
+    border: 2px solid red;
+}

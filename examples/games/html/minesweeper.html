@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Minesweeper</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="minesweeper">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/minesweeper.css">
+    <script src="../js/core.js"></script>
+    <script id="S1" src="../js/minesweeper.js"></script>
+</head>
+
+<body onload="fillCommon('minesweeper')">
+    <header id="site-header"></header>
+    <nav id="site-nav"></nav>
+    <main>
+        <h1>Minesweeper game</h1>
+        <fieldset>
+            <legend>Livello di gioco</legend>
+            <label><input type="radio" name="level" value="10-10-20" checked>Facile</label>
+            <label><input type="radio" name="level" value="15-20-60">Medio</label>
+            <label><input type="radio" name="level" value="20-30-120">Difficile</label>
+        </fieldset>
+        <button type="button" id="genera">Play!</button>
+        <div id="minesweeper">
+            Generated minesweeper game will be shown here
+        </div>
+    </main>
+    <aside id="site-news"></aside>
+    <footer id="site-footer"></footer>
+</body>
+
+</html>
