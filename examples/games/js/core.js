@@ -117,6 +117,18 @@ function getCookieValue(name, defaultValue = null) {
 }
 
 /**
+ * Returns an array of the given length filled with the given value
+ * @param {*} length the length of the returned array
+ * @param {*} value the value to fill the array wtih, defaults to 0
+ * @returns an array of the given length filled with the given value
+ */
+function constArray(length, value = 0) {
+    const result = []
+    result.length = length
+    return result.fill(value)
+}
+
+/**
  * Returns an array of the given length filled with values starting at start
  * and incremented by delta
  * @param {*} length the length of the returned array
@@ -131,7 +143,6 @@ function iota(length, start = 0, delta = 1) {
     }
     return result
 }
-
 
 /**
  * Return the selected value of the input(s) with the given name or default value
@@ -160,4 +171,16 @@ function isChecked(id) {
  */
 function debug(what) {
     console.log(what)
+}
+
+/**
+ * Restituisce se valido il valore dell'input type="number" con la data id
+ * oppure il valore di default fornito
+ * @param {*} id l'id dell'elemento di input
+ * @param {*} value valore da restituire se l'elemento non esiste o non è valido
+ * @returns il valore dell'input oppure value
+ */
+function getNumber(id, value = null) {
+    let e = document.querySelector('#' + id + ':valid')
+    return e == null ? value : e.valueAsNumber
 }

@@ -1,0 +1,63 @@
+* {
+    --sfondo: white;
+    background-color: var(--sfondo);
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+}
+
+menu {
+    padding: 0px;
+}
+
+menu>li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+menu li details fieldset {
+    display: none;
+    background-color: var(--sfondo);
+}
+
+menu li details:hover fieldset, menu li details fieldset:hover {
+    width: max-content;
+    position: absolute;
+    display: block;
+    z-index: +1;
+}
+
+#square {
+    border-collapse: separate;
+}
+
+#square td, #square th {
+    width: 5vmin;
+    height: 5vmin;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#square td {
+    font-size: 4vmin;
+    border: 1px solid black;
+}
+
+#square th {
+    font-size: 3vmin;
+    border: 1px solid yellow;
+}
+
+#square th.bad {
+    border: 2px dashed red;
+}
+
+#square th.good {
+    border: 2px dashed green;
+}
+
+#square th.dead {
+    border: none;
+}

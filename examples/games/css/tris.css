@@ -34,8 +34,8 @@ menu li details:hover fieldset, menu li details fieldset:hover {
     border: 2px solid black;
     background-image: url("../images/b.png");
     background-size: cover;
-    width: 20vmin;
-    height: 20vmin;
+    width: 15vmin;
+    height: 15vmin;
 }
 
 #tris div:nth-child(3n+1) {

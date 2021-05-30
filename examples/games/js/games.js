@@ -12,6 +12,7 @@ function fillNavbarForPage(page) {
         result += `<a href="tris.html">Tris</a>`
         result += `<a href="total15.html">Total 15</a>`
         result += `<a href="minesweeper.html">Mine sweeper</a>`
+        result += `<a href="magic.html">Magic squares</a>`
     } else {
         console.log("no site-nav element for page " + page)
     }

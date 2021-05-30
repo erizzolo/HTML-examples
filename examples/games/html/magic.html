@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Magic squares</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuele Rizzolo">
+    <meta name="description" content="Magic squares">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/magic.css">
+    <script src="../js/core.js"></script>
+    <script src="../js/magic.js"></script>
+</head>
+
+<body onload="fillCommon('magic')">
+    <header id="site-header"></header>
+    <nav id="site-nav"></nav>
+    <main>
+        <h1>Magic squares</h1>
+        <div id="controls">
+            <menu>
+                <li>
+                    <details open>
+                        <summary>Istruzioni</summary>
+                        <fieldset>
+                            <legend>Modalità di input</legend>
+                            <p>I quadrati di ordine pari sono in via sperimentale</p>
+                        </fieldset>
+                    </details>
+                </li>
+                <li>
+                    <details open>
+                        <summary>Game</summary>
+                        <fieldset>
+                            <legend>Dimensione</legend>
+                            <label>Dimensione<input type="number" id="dimension" value="3" min="3" max="50"></label>
+                        </fieldset>
+                    </details>
+                </li>
+                <li><button id="genera">Nuovo quadrato</button></li>
+                <li><button id="risolvi">Mostra soluzione</button></li>
+                <li><button id="verifica">Verifica</button></li>
+                <li><button id="save">Salva</button></li>
+                <li><button id="load">Carica</button></li>
+            </menu>
+            <p id="info">New game</p>
+        </div>
+        <table id="square" tabindex="-1">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </main>
+    <aside id="site-news"></aside>
+    <footer id="site-footer"></footer>
+</body>
+
+</html>
