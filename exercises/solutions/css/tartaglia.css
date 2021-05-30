@@ -1,0 +1,15 @@
+#tartaglia {
+    border-collapse: separate;
+    text-align: center;
+}
+
+#tartaglia td:not(.empty) {
+    width: 4em;
+    height: 2em;
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+label {
+    display: block;
+}

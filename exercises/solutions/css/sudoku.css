@@ -1,0 +1,77 @@
+label {
+    display: block;
+}
+
+table {
+    border: 3px ridge black;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: x-large;
+}
+
+td {
+    width: 2em;
+    height: 2em;
+    border: 1px solid black;
+    color: blue;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.fixed {
+    font-weight: bold;
+    color: black;
+    background-color: lightgrey;
+}
+
+td.conflict {
+    font-weight: bold;
+    color: orange;
+}
+
+td.empty {
+    font-weight: bold;
+    color: red;
+}
+
+td.trial {
+    font-weight: bold;
+    background-color: lightgreen;
+}
+
+td.sure {
+    font-weight: bold;
+}
+
+tr.top td {
+    border-top: 3px solid black;
+}
+
+tr.bottom td {
+    border-bottom: 3px solid black;
+}
+
+td.left {
+    border-left: 3px solid black;
+}
+
+td.right {
+    border-right: 3px solid black;
+}
+
+menu li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+}
+
+menu li details fieldset {
+    display: none;
+    background-color: white;
+}
+
+menu li details:hover fieldset, menu li details fieldset:hover {
+    width: max-content;
+    position: absolute;
+    display: block;
+}
