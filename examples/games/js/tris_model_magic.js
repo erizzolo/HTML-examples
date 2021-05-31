@@ -22,12 +22,12 @@ window.addEventListener('DOMContentLoaded', modelSetup, false)
 // identificatore celle:
 //  un numero da 0 a 8 dall'alto in basso, da sinistra a destra
 // contenuto celle (giocatore che l'ha marcata):
-//  un numero tra 0 e 2 (giocatore uno, due, nessuno)
+//  un bit per ciascun giocatore (1 = marcata, 0 = non marcata)
 const PLAYER_ONE = 0    // player one
 const PLAYER_TWO = 1    // player two
 const PLAYER_NONE = 2   // no player
 // strutture dati utilizzate:
-//  situazione attuale: board = array di 9 elementi con board[identificatore] = contenuto
+//  situazione attuale: due array con i valori delle mosse effettuate
 //   è ridondante/superflua dato che viene mantenuta la storia del gioco ...
 //  storia del gioco: moves = array di n (0..9) elementi con moves[i] = identificatore i-esima mossa
 //                      + startPlayer = giocatore iniziale (per sapere chi deve effettuare la mossa)
@@ -35,7 +35,7 @@ const PLAYER_NONE = 2   // no player
 // constants ------------------------------------------------------------------
 const BASE = 3
 const CELLS = BASE * BASE // number of cells
-
+const VALUES = [6, 1, 8, 7, 5, 3, 2, 9, 4]  // array of move values (a magic square !!!)
 // globals --------------------------------------------------------------------
 let game    // the game
 
@@ -84,7 +84,7 @@ function outerPlayer(inner) {
 function newGame(pcLevels = []) {
     game = {
         pcLevels: pcLevels, // AI levels if necessary
-        board: iota(CELLS, PLAYER_NONE, 0), // the inner board
+        board: [[], []],    // no player moved so far
         moves: [],      // the history - part 1
         startPlayer: Math.random() < 0.5 ? PLAYER_ONE : PLAYER_TWO,   // the history - part 2
         winner: PLAYER_NONE,    // winner if isOver
@@ -144,11 +144,22 @@ function makeMove(move) {
     if (game.status == 'playing') {
         move = innerCell(move)
         if (move >= 0) {
-            if (game.board[move] == PLAYER_NONE) {
+            if (canMake(game.board, move)) {
                 doMove(move)
             }
         }
     }
+}
+
+/**
+ * Return whether a move can be made
+ * @param {*} board the board
+ * @param {*} move the move
+ * @returns whether the move can be made
+ */
+function canMake(board, move) {
+    const value = VALUES[move]
+    return !(board[PLAYER_ONE].includes(value) || board[PLAYER_TWO].includes(value))
 }
 
 /**
@@ -167,7 +178,14 @@ function getWinner() {
 function getBoard(rowSeparator = '') {
     let result = ''
     for (let cell = 0; cell < CELLS; ++cell) {
-        result += outerPlayer(game.board[cell])
+        let value = VALUES[cell]
+        if (game.board[PLAYER_ONE].includes(value)) {
+            result += outerPlayer(PLAYER_ONE)
+        } else if (game.board[PLAYER_TWO].includes(value)) {
+            result += outerPlayer(PLAYER_TWO)
+        } else {
+            result += outerPlayer(PLAYER_NONE)
+        }
         if (cell % BASE == BASE - 1) {
             result += rowSeparator
         }
@@ -194,10 +212,14 @@ function getHistory() {
 function getWinning() {
     let result = ''
     if (game.winner != PLAYER_NONE) {
-        const lastMove = game.moves[game.moves.length - 1]
-        const winning = winningMoves(game.board, lastMove)
-        for (let m = 0; m < winning.length; ++m) {
-            result += outerCell(winning[m])
+        const winning = findTriplet(game.board[game.winner], 15)
+        for (let w = 0; w < winning.length; ++w) {
+            winning[w] = game.board[game.winner][winning[w]]
+        }
+        for (let m = 0; m < CELLS; ++m) {
+            if (winning.includes(VALUES[m])) {
+                result += outerCell(m)
+            }
         }
     }
     return result
@@ -215,7 +237,7 @@ function modelSetup() {
  * @returns true if the game is over, false otherwise
  */
 function isOver() {
-    return game.moves.length == game.board.length || game.winner != PLAYER_NONE
+    return game.moves.length == CELLS || game.winner != PLAYER_NONE
 }
 
 /**
@@ -234,11 +256,11 @@ function setStatus(status) {
  */
 function doMove(move) {
     const player = turn()
-    game.board[move] = player   // register move
+    game.board[player].push(VALUES[move])  // register move
     game.moves.push(move)       // add to history
     game.elapsed[player] += performance.now() - game.start// update elapsed
     moveMade(outerCell(move), outerPlayer(player)) // notify GUI
-    if (isWinningMove(game.board, move)) {    // check if winning
+    if (isWinningMove(game.board, player)) {    // check if winning
         game.winner = player    // set winner
     }
     if (isOver(game)) {    // game over ?
@@ -249,63 +271,42 @@ function doMove(move) {
 }
 
 /**
+ * Checks whether the given player wins 
+ * @param {*} board the board
+ * @param {*} player the (inner identifier of the) player of last move
+ * @returns true / false
+ */
+function isWinningMove(board, player) {
+    return findTriplet(board[player], 15) != null
+}
+
+/**
+ * Ricerca una terna di elementi nel vettore a, con somma target
+ * @param {*} a il vettore di ricerca
+ * @param {*} target la somma obiettivo
+ * @returns la terna di indici { first, second, third } se trovato, oppure null
+ */
+function findTriplet(a, target) {
+    // trivial solution
+    let result = null
+    for (let first = 0; first < a.length; ++first) {
+        for (let second = first + 1; second < a.length; ++second) {
+            for (let third = second + 1; third < a.length; ++third) {
+                if (a[first] + a[second] + a[third] == target) {
+                    result = [first, second, third]
+                }
+            }
+        }
+    }
+    return result
+}
+
+/**
  * Return the current turn player (in inner form)
  * @returns the current turn player (in inner form)
  */
 function turn() {
     return isOver(game) ? PLAYER_NONE : (game.startPlayer + game.moves.length) % 2
-}
-
-/**
- * Checks whether the given move wins 
- * @param {*} board the board
- * @param {*} move the (inner identifier of the) last move made
- * @returns true / false
- */
-function isWinningMove(board, move) {
-    const col = move % 3       // indice colonna
-    const row = (move - col) / 3  // indice riga
-    return checkCells(board, col, 3)     // column
-        || checkCells(board, row * 3, 1)    // row
-        || ((row == col) && checkCells(board, 0, 4)) // main diagonal
-        || ((row + col == 2) && checkCells(board, 2, 2)) // second diagonal
-}
-
-/**
- * Checks whether board[base + (0..2) * delta] are the same value
- * @param {*} board the board
- * @param {*} base tha base cell
- * @param {*} delta increment from base
- * @returns true / false
- */
-function checkCells(board, base, delta) {
-    return board[base] == board[base + delta] && board[base] == board[base + 2 * delta]
-}
-
-/**
- * Checks whether the given move wins 
- * @param {*} board the board
- * @param {*} move the (inner identifier of the) last move made
- * @returns an array of the (inner identifiers of the) winning moves if any
- */
-function winningMoves(board, move) {
-    const col = move % 3    // indice colonna = same column, first row
-    const row = move - col  // same row, first column
-    return winningCells(board, col, 3)     // column
-        .concat(winningCells(board, row, 1))    // row
-        .concat((move % 4 == 0) ? winningCells(board, 0, 4) : []) // main diagonal
-        .concat((move + 2 * col == 6) ? winningCells(board, 2, 2) : []) // second diagonal
-}
-
-/**
- * Checks whether board[base + (0..2) * delta] are the same value
- * @param {*} board the board
- * @param {*} base tha base cell
- * @param {*} delta increment from base
- * @returns an array [base, base + delta, base + 2 * delta] or an empty array
- */
-function winningCells(board, base, delta) {
-    return checkCells(board, base, delta) ? [base, base + delta, base + 2 * delta] : []
 }
 
 /**
@@ -348,7 +349,7 @@ function randomMove(board) {
     let move
     do {
         move = Math.floor(Math.random() * CELLS)
-    } while (board[move] != PLAYER_NONE)
+    } while (!canMake(board, move))
     return move
 }
 
@@ -362,7 +363,7 @@ function bestMove(board, turn) {
     let best = []
     let bestValue = -CELLS
     for (let move = 0; move < CELLS; ++move) {
-        if (board[move] == PLAYER_NONE) {
+        if (canMake(board, move)) {
             let value = valueOf(board, move, turn)
             if (bestValue < value) {
                 bestValue = value
@@ -384,14 +385,14 @@ function bestMove(board, turn) {
  */
 function valueOf(board, move, turn) {
     let result = CELLS
-    board[move] = turn
-    if (isWinningMove(board, move)) {   // wins
+    board[turn].push(VALUES[move])
+    if (isWinningMove(board, turn)) {   // wins
         result = countBlanks(board) + 1
     } else if (countBlanks(board) == 0) {   // draw
         result = 0
     } else {    // maybe ???
         for (let next = 0; next < CELLS; ++next) {
-            if (board[next] == PLAYER_NONE) {
+            if (canMake(board, next)) {
                 let value = -valueOf(board, next, 1 - turn)  // other player
                 if (result > value) {
                     result = value
@@ -399,7 +400,7 @@ function valueOf(board, move, turn) {
             }
         }
     }
-    board[move] = PLAYER_NONE
+    board[turn].pop()
     return result
 }
 
@@ -409,13 +410,7 @@ function valueOf(board, move, turn) {
  * @returns count of blank cells in the board
  */
 function countBlanks(board) {
-    let count = 0
-    for (let cell = 0; cell < board.length; ++cell) {
-        if (board[cell] == PLAYER_NONE) {
-            ++count
-        }
-    }
-    return count
+    return CELLS - board[PLAYER_ONE].length - board[PLAYER_TWO].length
 }
 
 /**
@@ -427,22 +422,22 @@ function countBlanks(board) {
 function oneAhead(board, turn) {
     let best = []
     for (let move = 0; move < CELLS; ++move) {
-        if (board[move] == PLAYER_NONE) {
-            board[move] = turn
-            if (isWinningMove(board, move)) {
+        if (canMake(board, move)) {
+            board[turn].push(VALUES[move])
+            if (isWinningMove(board, turn)) {
                 best.push(move)
             }
-            board[move] = PLAYER_NONE
+            board[turn].pop()
         }
     }
     if (best.length == 0) { // can't win, try not to lose
         for (let move = 0; move < CELLS; ++move) {
-            if (board[move] == PLAYER_NONE) {
-                board[move] = 1 - turn
-                if (isWinningMove(board, move)) {
+            if (canMake(board, move)) {
+                board[1 - turn].push(VALUES[move])
+                if (isWinningMove(board, 1 - turn)) {
                     best.push(move)
                 }
-                board[move] = PLAYER_NONE
+                board[1 - turn].pop()
             }
         }
     }

@@ -68,6 +68,7 @@ function verifica(evento) {
 function risolvi(evento) {
     const dim = getNumber('dimension')
     if (dim != null) {
+        genera()
         showArray(square(dim))
     }
 }
